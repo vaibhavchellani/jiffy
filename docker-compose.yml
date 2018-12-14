@@ -1,0 +1,15 @@
+version: '3.5'
+
+services:
+  jiffy-webapp:
+    container_name: jiffy-webapp
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - '$PWD:/usr/src/app'
+      - '/usr/src/app/node_modules'
+    ports:
+      - '8080:8080'
+    environment:
+      - NODE_ENV=development
