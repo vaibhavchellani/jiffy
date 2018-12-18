@@ -7,6 +7,7 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const common = require('./webpack.common')
 
 module.exports = merge(common, {
+  entry: ['./src/index.tsx'],
   mode: 'production',
   devtool: 'source-map',
   bail: true,

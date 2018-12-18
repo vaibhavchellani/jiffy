@@ -6,7 +6,7 @@
   "license": "MIT",
   "scripts": {
     "build": "yarn format && yarn typecheck && yarn lint && webpack --config config/webpack/webpack.prod.js",
-    "watch": "webpack-dev-server --mode development --config config/webpack/webpack.dev.js --open",
+    "watch": "webpack-dev-server --mode development --config config/webpack/webpack.dev.js --port 3000 --open",
     "typecheck": "tsc --noEmit --pretty",
     "format": "prettier --write \"{src,__tests__}/**/*.{ts,tsx}\"",
     "lint": "tslint --force --format verbose \"src/**/*.{ts,tsx}\""
@@ -22,6 +22,7 @@
     "@babel/core": "^7.1.2",
     "@babel/plugin-proposal-class-properties": "^7.1.0",
     "@babel/plugin-proposal-object-rest-spread": "^7.0.0",
+    "@babel/plugin-transform-runtime": "^7.2.0",
     "@babel/preset-env": "^7.1.0",
     "@babel/preset-react": "^7.0.0",
     "@babel/preset-typescript": "^7.1.0",
@@ -29,6 +30,7 @@
     "@types/react-dom": "^16.0.11",
     "awesome-typescript-loader": "^5.2.1",
     "babel-loader": "^8.0.4",
+    "babel-plugin-module-resolver": "^3.1.1",
     "clean-webpack-plugin": "^1.0.0",
     "css-loader": "^2.0.0",
     "html-webpack-plugin": "^3.2.0",
@@ -47,6 +49,7 @@
     "webpack": "^4.20.2",
     "webpack-cli": "^3.1.1",
     "webpack-dev-server": "^3.1.9",
+    "webpack-hot-middleware": "^2.24.3",
     "webpack-merge": "^4.1.4"
   }
 }
