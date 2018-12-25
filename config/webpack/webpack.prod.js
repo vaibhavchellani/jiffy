@@ -14,6 +14,7 @@ module.exports = merge(common, {
   output: {
     filename: '[name].[contenthash].js',
     path: path.resolve('./build'),
+    publicPath: '/',
   },
   module: {
     rules: [
