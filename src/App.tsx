@@ -11,7 +11,7 @@ type Props = {
 }
 
 export default ({ text }: Props) => (
-  <React.Fragment>
+  <>
     <h1>Hello, {text}!</h1>
     <BrowserRouter>
       <div>
@@ -34,5 +34,5 @@ export default ({ text }: Props) => (
         <Route path="/users/" component={Users} />
       </div>
     </BrowserRouter>
-  </React.Fragment>
+  </>
 )
