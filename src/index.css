@@ -1,0 +1,445 @@
+body {
+	margin: 0;
+	padding: 0;
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+		"Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+		sans-serif;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+::-webkit-scrollbar {
+	width: 0px;
+	background: transparent; /* make scrollbar transparent */
+}
+
+code {
+	font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+		monospace;
+}
+
+.app-page {
+	color: white;
+	height: 100vh;
+	background: #202124;
+}
+
+.a-row {
+	margin: auto;
+}
+
+.left-menu {
+	background: #2e2f32;
+	height: 100%;
+}
+
+.left-menu .items {
+	height: 100%;
+}
+
+.search input[type="text"] {
+	background: rgb(109, 111, 117);
+	width: 100%;
+	margin: auto;
+	border-radius: 5px;
+	border: none;
+	padding: 4%;
+	padding-left: 40px;
+	font-size: 10pt;
+	color: white;
+}
+
+.search {
+	position: relative;
+}
+
+.search i {
+	position: absolute;
+	left: 0px;
+	top: 15px;
+	padding: 10px 10px;
+}
+
+.avatar .avatar-img {
+	border-radius: 50%;
+	height: 60px;
+	width: 60px;
+	background: url("https://articles-images.sftcdn.net/wp-content/uploads/sites/3/2016/01/wallpaper-for-facebook-profile-photo.jpg");
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: center;
+}
+
+.avatar .title {
+	font-size: 18pt;
+	font-style: italic;
+	color: aquamarine;
+	font-weight: bold;
+}
+
+.timestamp {
+	font-size: 8pt;
+}
+
+.item {
+	width: 100%;
+	font-size: 15pt;
+	cursor: pointer;
+	border-radius: 5px;
+	transition: all 0.2s;
+}
+
+.item:hover {
+	background: rgba(156, 156, 156, 0.096);
+}
+
+.item i {
+	min-width: 40px;
+}
+
+.item-active {
+	background: rgba(156, 156, 156, 0.37);
+	font-weight: 600;
+}
+
+.item-active:hover {
+	background: rgba(156, 156, 156, 0.37);
+}
+
+.nav {
+	color: white !important;
+	text-decoration: none !important;
+}
+
+/* Page general */
+.page {
+	min-width: 100%;
+	max-height: 95%;
+	overflow-y: scroll;
+}
+
+/* 404 Page */
+.error {
+	height: 100%;
+	width: 100%;
+}
+
+.error-icon {
+	font-size: 80pt;
+}
+
+/* Notification component */
+.toast {
+	background: #2e2f32 !important;
+	border-radius: 5px !important;
+	color: rgba(255, 255, 255, 0.719) !important;
+	transition: all 0.2s;
+	position: relative;
+	z-index: 1;
+}
+
+.progress {
+	background: rgba(255, 199, 58, 1) !important;
+	height: 2px !important;
+}
+
+/* Changelog Component */
+.changelog-card {
+	background: #2e2f32;
+	border-radius: 5px;
+	transition: all 0.2s;
+}
+
+.changelog-card .time {
+	font-size: 9pt;
+}
+
+.latest-change {
+	background: #3d3f42;
+	padding: 5% !important;
+	border-radius: 5px;
+	border-left: solid 8px rgb(255, 199, 58);
+	transition: all 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.latest-change:hover {
+	border-left: solid 50px rgb(255, 199, 58);
+}
+
+.latest-change .time {
+	font-size: 9pt;
+}
+
+.latest-change .change {
+	font-size: 20pt;
+}
+
+/* Utilities */
+.muted {
+	opacity: 0.5;
+}
+
+/* StatusBar */
+.statusBar {
+	width: 100%;
+	height: 5vh;
+	background: linear-gradient(90deg, #3099d6, #156e85);
+	border-radius: 30px 30px 0 0;
+	/* position: absolute; */
+	/* bottom: 100px; */
+	/* padding: 10%; */
+}
+
+.statusBar .bottom-child {
+	font-size: 9pt;
+	line-height: 10pt;
+}
+
+.statusBar i {
+	font-size: 12pt;
+}
+
+/* Huge card */
+.huge-card {
+	height: 40vh;
+	width: 100%;
+	background: linear-gradient(-45deg, rgb(139, 205, 238), #37abce);
+	border-radius: 0 0 10px 10px;
+	position: relative;
+}
+
+.huge-card .sub-title {
+	cursor: default;
+	font-size: 30pt;
+	font-weight: 600;
+	line-height: 32pt;
+}
+
+.huge-card .desc {
+	cursor: default;
+	font-weight: 100;
+}
+
+.huge-card .main-title {
+	cursor: default;
+	font-weight: bold;
+}
+
+.huge-card-image {
+	height: 110%;
+	width: 20%;
+	position: absolute;
+	background-repeat: no-repeat;
+	background-size: contain;
+	right: 0;
+	top: 10%;
+	animation: float 2s ease-in-out infinite;
+}
+
+@keyframes float {
+	0% {
+		transform: translatey(0px);
+	}
+	50% {
+		transform: translatey(-20px);
+	}
+	100% {
+		transform: translatey(0px);
+	}
+}
+
+/* Big Card */
+.big-card {
+	border-radius: 10px;
+	height: 25vh;
+	background: #3d3f42;
+}
+
+.big-card-image {
+	height: 100px;
+	width: 100px;
+	background-repeat: no-repeat;
+	background-size: contain;
+}
+
+.big-card .main-title {
+	cursor: default;
+	font-weight: bold;
+	font-size: 12pt;
+	transition: all 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.big-card .desc {
+	max-width: 75%;
+	font-size: 10pt;
+	word-wrap: break-word;
+	cursor: default;
+}
+
+.big-card:hover .main-title {
+	font-size: 30pt;
+}
+
+/* MEDIUM CARD */
+.med-card {
+	border-radius: 10px;
+	height: 25vh;
+	background: #3d3f42;
+	overflow: hidden;
+}
+
+.med-card .meta {
+	background: #56575a;
+	font-size: 9pt;
+	font-weight: bold;
+}
+
+.med-card-image {
+	border-radius: 50%; 
+	background: linear-gradient(45deg, #b96e18, #e02097);
+	height: 100px;
+	width: 100px;
+	background-repeat: no-repeat;
+	background-size: contain;
+}
+
+.med-card .main {
+	font-size: 15pt;
+	font-weight: 400;
+	text-transform: uppercase;
+}
+
+.home-actions > .row {
+	overflow-x: auto;
+}
+
+.home-actions .row .col-3 {
+	display: inline-block;
+	float: none;
+}
+
+.popular-highlights > .row {
+	overflow-x: auto;
+}
+
+.popular-highlights .row .col-4 {
+	display: inline-block;
+	float: none;
+}
+
+/* Emphasis */
+.emph-icon {
+	border-radius: 50%;
+	height: 80px;
+	width: 80px;
+	background: linear-gradient(45deg, #b96e18, #e02097);
+}
+
+.emph-name {
+	font-size: 10pt;
+	line-height: 12pt;
+}
+
+.emph-network {
+	text-transform: uppercase;
+	font-size: 8pt;
+	font-weight: bold;
+}
+
+.emph-btn {
+	max-width: 30%;
+	font-size: 8pt !important;
+	font-weight: bold !important;
+}
+
+/* Divider */
+.title-divider {
+	font-size: 18pt;
+	line-height: 20pt;
+	font-weight: 500;
+	border-top: solid 0.5px rgba(255, 255, 255, 0.479);
+}
+
+.more {
+	font-size: 10pt;
+	font-weight: bold;
+	color: #4baee1;
+}
+
+.more:hover {
+	cursor: pointer;
+	color: white;
+}
+
+/* login-modal */
+.login-modal {
+	background: rgba(0, 0, 0, 0.801);
+	position: absolute;
+	top: 0%;
+	left: 0%;
+	bottom: 0%;
+	right: 0%;
+}
+
+.login-modal-box {
+	background: white;
+	position: absolute;
+	top: 30%;
+	left: 20%;
+	bottom: 30%;
+	right: 20%;
+	border-radius: 10px;
+	overflow: hidden;
+}
+
+.login-modal-image {
+	background-repeat: no-repeat;
+	background-size: contain;
+	position: absolute;
+	height: 130%;
+	width: 60%;
+	top: -20%;
+	left: -10%;
+	opacity: 0.7;
+}
+
+.login-modal-text {
+	height: 100%;
+	width: 50%;
+}
+
+.login-modal-text .text {
+	color: rgb(66, 66, 66);
+	font-size: 20pt;
+	font-weight: 300;
+}
+
+.login-modal-text .text p {
+	color: #37abce;
+	font-size: 25pt;
+	font-weight: 400;
+}
+
+.login-modal .button {
+	font-size: 10pt;
+	font-weight: bold;
+	border-radius: 10px;
+	background: rgb(255, 146, 50);
+	width: 20vw;
+	height: 5vh;
+}
+
+.login-modal .button:hover {
+	background: rgb(250, 117, 0);
+	cursor: pointer;
+	transition: all 0.5s;
+}
+
+.close-button {
+	position: absolute;
+	right: 20px;
+	top: 20px;
+	color: rgb(228, 73, 53);
+	font-size: 20pt;
+	cursor: pointer;
+}
