@@ -1,38 +1,28 @@
-import * as React from 'react'
+import React, { lazy, Suspense } from 'react'
+import { BrowserRouter, Route } from 'react-router-dom'
+import { ThemeProvider } from 'emotion-theming'
 
-import { BrowserRouter, Link, Route } from 'react-router-dom'
+import { themes } from 'styles'
+import { MainContainer } from 'elements'
 
-const Index = () => <h2>Home</h2>
-const About = () => <h2>About</h2>
-const Users = () => <h2>Users</h2>
+const LazyHome = lazy(() => import('pages/Home'))
 
-type Props = {
-  text: string
-}
+const night: boolean = true
 
-export default ({ text }: Props) => (
-  <>
-    <h1>Hello, {text}!</h1>
-    <BrowserRouter>
-      <div>
-        <nav>
-          <ul>
-            <li>
-              <Link to="/">Home</Link>
-            </li>
-            <li>
-              <Link to="/about/">About</Link>
-            </li>
-            <li>
-              <Link to="/users/">Users</Link>
-            </li>
-          </ul>
-        </nav>
+export default () => (
+  <ThemeProvider theme={themes[night ? 'dark' : 'light']}>
+    <MainContainer>
+      <BrowserRouter>
+        <Route exact={true} path="/" component={WaitingComponent(LazyHome)} />
+      </BrowserRouter>
+    </MainContainer>
+  </ThemeProvider>
+)
 
-        <Route path="/" exact={true} component={Index} />
-        <Route path="/about/" component={About} />
-        <Route path="/users/" component={Users} />
-      </div>
-    </BrowserRouter>
-  </>
+const WaitingComponent = <P extends object>(
+  Component: React.ComponentType<P>,
+) => (props: P) => (
+  <Suspense fallback={<div>Loading...</div>}>
+    <Component {...props} />
+  </Suspense>
 )

@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "baseUrl": "./", // enables project relative paths config
+    "baseUrl": ".", // enables project relative paths config
     "outDir": "dist/", // target for compiled files
     "allowSyntheticDefaultImports": true, // no errors with commonjs modules interop
     "esModuleInterop": true,
@@ -26,7 +26,17 @@
     "strict": true,
     "pretty": true,
     "removeComments": true,
-    "sourceMap": true
+    "sourceMap": true,
+    "paths": {
+      "*": ["src/*"],
+      "components": ["src/components"],
+      "pages": ["src/pages"],
+      "elements": ["src/elements"],
+      "styles": ["src/styles"],
+      "utils": ["src/utils"],
+      "hOC": ["src/hoc"],
+      "image": ["src/assets/img"]
+    }
   },
   "include": ["src/**/*"],
   "exclude": ["node_modules", "src/**/*.spec.*"]
