@@ -24,6 +24,7 @@
   "presets": [
     ["@babel/env", { "useBuiltIns": "usage", "modules": false }],
     "@babel/typescript",
-    "@babel/react"
+    "@babel/react",
+    "@emotion/babel-preset-css-prop"
   ]
 }

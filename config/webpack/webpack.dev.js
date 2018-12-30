@@ -4,7 +4,7 @@ const webpack = require('webpack')
 const common = require('./webpack.common')
 
 module.exports = merge(common, {
-  entry: ['./src/index.tsx', 'webpack-hot-middleware/client'],
+  entry: ['./src/index.tsx'],
   mode: 'development',
   devtool: 'cheap-module-eval-source-map',
   output: {

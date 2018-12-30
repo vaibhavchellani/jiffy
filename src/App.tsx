@@ -13,7 +13,7 @@ export default () => (
   <ThemeProvider theme={themes[night ? 'dark' : 'light']}>
     <MainContainer>
       <BrowserRouter>
-        <Route exact={true} path="/" component={WaitingComponent(LazyHome)} />
+        <Route exact path="/" component={WaitingComponent(LazyHome)} />
       </BrowserRouter>
     </MainContainer>
   </ThemeProvider>
