@@ -1,5 +1,5 @@
 import React from 'react'
-import { InfoBox } from 'elements'
+import * as S from './styles'
 
 type InfoProps = {
   background: string
@@ -12,12 +12,12 @@ type InfoProps = {
 export const Info: React.FunctionComponent<InfoProps> = props => {
   const { background, text, imgSrc, shadow, heading } = props
   return (
-    <InfoBox background={background} shadow={shadow}>
+    <S.InfoBox background={background} shadow={shadow}>
       <div>
         <img src={imgSrc} />
       </div>
       <div className="heading">{heading}</div>
       <div className="text">{text}</div>
-    </InfoBox>
+    </S.InfoBox>
   )
 }

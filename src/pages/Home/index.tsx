@@ -1,12 +1,7 @@
 import React, { Component } from 'react'
-import {
-  Container,
-  HomeContainer,
-  Box,
-  InfoContainer,
-  Text,
-  Button,
-} from 'elements'
+import { Container, HomeContainer, InfoContainer, Text, Button } from 'elements'
+
+import * as S from './styles'
 import { Info, DAppList } from 'components'
 import { DeployImg, ChoiceImg, LaptopImg } from 'image'
 import { spanStyleCss } from 'styles'
@@ -15,9 +10,9 @@ import { dAppList } from 'data'
 export default class Home extends Component {
   public render() {
     return (
-      <HomeContainer>
+      <S.HomeContainer>
         <Container flexFlow="column">
-          <Box background={'#212121'}>
+          <S.Box background={'#212121'}>
             <Text size={3} bold>
               Prototype <br /> Review
               <span className={spanStyleCss}>AND</span>
@@ -31,8 +26,8 @@ export default class Home extends Component {
               SMART <br />
               CONTRACTS
             </Text>
-          </Box>
-          <InfoContainer>
+          </S.Box>
+          <S.InfoContainer>
             <Info
               background={
                 'linear-gradient(257.74deg, #EC576C 3.94%, #EB5780 98.67%, #00E4FF 98.68%)'
@@ -61,7 +56,7 @@ export default class Home extends Component {
               heading="Use"
               imgSrc={LaptopImg}
             />
-          </InfoContainer>
+          </S.InfoContainer>
         </Container>
         <Container flexFlow="column">
           <div>
@@ -90,7 +85,7 @@ export default class Home extends Component {
             <Text size={1.5}>Login</Text>
           </Button>
         </Container>
-      </HomeContainer>
+      </S.HomeContainer>
     )
   }
 }

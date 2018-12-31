@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 
-import { AppList } from 'elements'
-import Icon from './shared/Icon'
+import * as S from './styles'
+import Icon from '../shared/Icon'
 
 type AppType = {
   name: string
@@ -38,6 +38,6 @@ export default class DAppList extends Component<{
 
   public render() {
     const { data, small } = this.props
-    return <AppList>{this.renderDetails(data, small)}</AppList>
+    return <S.AppList>{this.renderDetails(data, small)}</S.AppList>
   }
 }

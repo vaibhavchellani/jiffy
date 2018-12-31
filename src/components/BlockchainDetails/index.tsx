@@ -1,7 +1,8 @@
 import React, { Component, ReactNode } from 'react'
 
-import { Details } from 'elements'
-import Icon from './shared/Icon'
+import * as S from './styles'
+
+import Icon from '../shared/Icon'
 
 type dataType = {
   heading: string
@@ -29,6 +30,6 @@ export default class BlockchainDetails extends Component<{ data: dataType[] }> {
 
   public render() {
     const { data } = this.props
-    return <Details>{this.renderDetails(data)}</Details>
+    return <S.Details>{this.renderDetails(data)}</S.Details>
   }
 }
