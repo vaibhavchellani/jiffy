@@ -1,4 +1,6 @@
 import React, { Component } from 'react'
+import { css } from 'emotion'
+
 import {
   Container,
   HomeContainer,
@@ -11,32 +13,37 @@ import { Info } from 'components/Info'
 
 import { DeployImg, ChoiceImg, LaptopImg } from 'image'
 
+const spanStyleCss = css`
+  font-weight: normal;
+  position: absolute;
+  transform: rotate(90deg);
+  font-size: 15px;
+  color: #616161;
+  margin: -46px 30px 26px 84px;
+  @media screen and (max-width: 520px) {
+    font-size: 12px;
+    margin: -30px 30px 26px 52px;
+  }
+`
+
 export default class Home extends Component {
   public render() {
     return (
       <HomeContainer>
         <Container flexFlow="column">
           <Box background={'#212121'}>
-            <Text size={72} width={340} bold>
-              Prototype Review
-            </Text>
-            <Text
-              size={15}
-              width={10}
-              color={'#616161'}
-              style={{
-                transform: 'rotate(90deg)',
-              }}
-            >
-              AND
+            <Text size={3} bold>
+              Prototype <br /> Review
+              <span className={spanStyleCss}>AND</span>
             </Text>
             <Text
               gradient
               background={'linear-gradient(90deg, #8AA4FF 0%, #FF00A8 100%) '}
-              size={72}
+              size={3}
               bold
             >
-              SMART CONTRACTS
+              SMART <br />
+              CONTRACTS
             </Text>
           </Box>
           <InfoContainer>
@@ -79,7 +86,7 @@ export default class Home extends Component {
             }
             shadow={'0px 4px 23px rgba(109, 163, 244, 0.46)'}
           >
-            <Text size={29}>Login</Text>
+            <Text size={1.5}>Login</Text>
           </Button>
         </Container>
       </HomeContainer>

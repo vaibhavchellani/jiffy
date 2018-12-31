@@ -14,7 +14,7 @@ type TextProps = {
 export const Text = styled.p`
   margin: 0;
   font-family: 'Roboto', sans-serif;
-  font-size: ${(props: TextProps) => props.size || 28}px;
+  font-size: ${(props: TextProps) => props.size || 28}em;
   color: ${(props: TextProps) => props.color || '#FFFFFF'};
   font-weight: ${(props: TextProps) => (props.bold ? 'bold' : 'normal')};
   width: ${(props: TextProps) => (props.width ? props.width + 'px' : '100%')};

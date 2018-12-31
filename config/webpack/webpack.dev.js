@@ -15,6 +15,7 @@ module.exports = merge(common, {
   devServer: {
     hot: true,
     historyApiFallback: true,
+    disableHostCheck: true,
   },
   plugins: [new webpack.HotModuleReplacementPlugin()],
   module: {

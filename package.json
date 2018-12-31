@@ -7,7 +7,7 @@
   "scripts": {
     "build": "yarn format && yarn typecheck && yarn lint && webpack --config config/webpack/webpack.prod.js",
     "watch": "webpack-dev-server --mode development --config config/webpack/webpack.dev.js --port 3000 --open",
-    "prod": "yarn build && ts-node server.ts",
+    "prod": "ts-node server.ts",
     "typecheck": "tsc --noEmit --pretty",
     "format": "prettier --write \"{src,__tests__}/**/*.{ts,tsx}\"",
     "lint": "tslint --force --format verbose \"src/**/*.{ts,tsx}\""
@@ -16,6 +16,7 @@
     "@babel/polyfill": "^7.0.0",
     "@emotion/core": "^10.0.5",
     "@emotion/styled": "^10.0.5",
+    "emotion": "^10.0.5",
     "emotion-theming": "^10.0.5",
     "express": "^4.16.4",
     "express-history-api-fallback": "^2.2.1",

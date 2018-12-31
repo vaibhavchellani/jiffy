@@ -6,8 +6,12 @@ export const MainContainer = styled.div`
   background: ${props => props.theme.background};
   padding: 50px;
   color: white;
-  @media screen and (max-width: 520px) {
-    padding: 25px;
+  @media screen and (max-width: 768px) {
+    padding: 25px 25px 66px 25px;
+    height: 100%;
+  }
+  @media screen and (max-width: 425px) {
+    padding: 25px 5px 66px 5px;
     height: 100%;
   }
 `
@@ -21,8 +25,10 @@ export const BottomContainer = styled.div`
 
 export const HomeContainer = styled.div`
   display: flex;
+  font-size: 25px;
   @media screen and (max-width: 520px) {
     display: block;
+    font-size: 15px;
   }
 `
 
@@ -49,11 +55,13 @@ export const Box = styled.div`
   max-width: 775px;
   padding: 124px 40px;
   position: relative;
-  height: calc(100vh * 1px);
+  height: calc(100vh * 0.55);
   background: ${(props: BoxProps) => props.background};
   border-radius: 15px;
   @media screen and (max-width: 520px) {
     min-width: 200px;
+    padding: 122px 29px 22px;
+    height: 100%;
   }
 `
 
@@ -104,16 +112,15 @@ export const InfoBox = styled.div`
 `
 
 export const Details = styled.div`
-  width: calc(100vw * 0.75);
+  width: calc(100vw * 0.79);
   margin: 55px auto 0;
   height: 59px;
   font-family: 'Roboto', sans-serif;
   display: flex;
   justify-content: space-around;
   color: ${props => (props.theme.name === 'dark' ? '#FFFFFF' : '#000000')};
-  padding: 23px 157px;
-  background: ${props =>
-    props.theme.name === 'dark' ? '#212121' : '#F1F1F1F1'};
+  padding: 23px 26px;
+  background: ${props => (props.theme.name === 'dark' ? '#212121' : '#FFFFFF')};
   border-radius: 101px 101px 0 0;
   .data {
     display: flex;
@@ -127,6 +134,14 @@ export const Details = styled.div`
       }
     }
   }
+  @media screen and (min-width: 1024px) {
+    padding: 23px 176px;
+  }
+  @media screen and (max-width: 768px) {
+    width: calc(100vw * 0.99);
+    padding: 23px;
+  }
+
   @media screen and (max-width: 520px) {
     display: none;
   }

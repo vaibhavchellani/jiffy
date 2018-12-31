@@ -12,7 +12,7 @@ export const bottomBarDetails = [
     detail: '12:38:00',
   },
   {
-    heading: 'avg block time',
+    heading: 'block time',
     detail: '5 sec',
   },
 ]
