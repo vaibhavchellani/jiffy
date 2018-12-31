@@ -1,7 +1,7 @@
 import React from 'react'
 import { InfoBox } from 'elements'
 
-export type InfoProps = {
+type InfoProps = {
   background: string
   shadow?: string
   text: string

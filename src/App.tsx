@@ -3,7 +3,10 @@ import { BrowserRouter, Route } from 'react-router-dom'
 import { ThemeProvider } from 'emotion-theming'
 
 import { themes } from 'styles'
-import { MainContainer } from 'elements'
+import { MainContainer, BottomContainer } from 'elements'
+import { BlockchainDetails } from 'components'
+
+import { bottomBarDetails } from 'data'
 
 const LazyHome = lazy(() => import('pages/Home'))
 
@@ -16,6 +19,9 @@ export default () => (
         <Route exact path="/" component={WaitingComponent(LazyHome)} />
       </BrowserRouter>
     </MainContainer>
+    <BottomContainer>
+      <BlockchainDetails data={bottomBarDetails} />
+    </BottomContainer>
   </ThemeProvider>
 )
 

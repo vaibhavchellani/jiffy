@@ -31,6 +31,7 @@
       "*": ["src/*"],
       "components": ["src/components"],
       "pages": ["src/pages"],
+      "data": ["src/data"],
       "elements": ["src/elements"],
       "styles": ["src/styles"],
       "utils": ["src/utils"],

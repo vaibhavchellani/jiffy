@@ -1,7 +1,12 @@
 import React, { Component } from 'react'
-import { jsx } from '@emotion/core'
-
-import { Box, InfoContainer, Text, GradientText, AbsoluteText } from 'elements'
+import {
+  Container,
+  HomeContainer,
+  Box,
+  InfoContainer,
+  Text,
+  Button,
+} from 'elements'
 import { Info } from 'components/Info'
 
 import { DeployImg, ChoiceImg, LaptopImg } from 'image'
@@ -9,31 +14,30 @@ import { DeployImg, ChoiceImg, LaptopImg } from 'image'
 export default class Home extends Component {
   public render() {
     return (
-      <>
-        <div>
+      <HomeContainer>
+        <Container flexFlow="column">
           <Box background={'#212121'}>
             <Text size={72} width={340} bold>
               Prototype Review
             </Text>
-            <AbsoluteText
+            <Text
               size={15}
               width={10}
-              left={375}
-              top={150}
               color={'#616161'}
               style={{
                 transform: 'rotate(90deg)',
               }}
             >
               AND
-            </AbsoluteText>
-            <GradientText
+            </Text>
+            <Text
+              gradient
               background={'linear-gradient(90deg, #8AA4FF 0%, #FF00A8 100%) '}
               size={72}
               bold
             >
               SMART CONTRACTS
-            </GradientText>
+            </Text>
           </Box>
           <InfoContainer>
             <Info
@@ -65,8 +69,20 @@ export default class Home extends Component {
               imgSrc={LaptopImg}
             />
           </InfoContainer>
-        </div>
-      </>
+        </Container>
+        <Container>
+          <Button
+            borderRadius={29.5}
+            height={'59px'}
+            backgroundColor={
+              'linear-gradient(90deg, #6C67CE 0%, #6DA3F4 100%);'
+            }
+            shadow={'0px 4px 23px rgba(109, 163, 244, 0.46)'}
+          >
+            <Text size={29}>Login</Text>
+          </Button>
+        </Container>
+      </HomeContainer>
     )
   }
 }

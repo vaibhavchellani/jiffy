@@ -11,6 +11,7 @@
         "root": "./src",
         "alias": {
           "components": "./src/components",
+          "data": "./src/data",
           "pages": "./src/pages",
           "elements": "./src/elements",
           "styles": "./src/styles",

@@ -1,35 +1,31 @@
 import styled from '@emotion/styled'
 
+type ButtonProps = {
+  width?: string
+  height?: string
+  shadow?: string
+  borderRadius?: number
+  backgroundColor: string
+}
+
 export const Button = styled.button`
-  font-size: 22px;
-  width: ${props => (props.type === 'big' ? '100%' : '150px')};
-  display: block;
-  border-radius: 8px;
-  border: none;
+  width: ${(props: ButtonProps) => props.width || '100%'};
+  height: ${(props: ButtonProps) => props.height || '0px'};
+  transition: transform 100ms ease-in;
+  border: 0;
   cursor: pointer;
-  font-weight: bold;
   outline: none;
-  text-decoration: none;
-  line-height: 60px;
+  animation: none;
   text-align: center;
-  background-color: ${color.gridTileColor};
-  color: ${props =>
-    props.textColor ? props.textColor : color.primaryFontColor(0.5)};
-  ${transition({ property: 'color' })};
-  ${transition({ property: 'background-color' })};
-  ${transition({ property: 'opacity' })};
-  &:active {
-    transform: scale(0.99);
-  }
-  &:hover {
-    background-color: ${color.buttonHoverColor};
-    color: ${color.primaryFontColor()};
-  }
-  &:disabled {
-    opacity: 0.5;
-    cursor: not-allowed;
-    &:hover {
-      background-color: ${color.gridTileColor};
-      color: ${color.primaryFontColor(0.5)};
-    }
-  }
+  background: ${(props: ButtonProps) => props.backgroundColor}
+  border-radius: ${(props: ButtonProps) => `${props.borderRadius || 0}px`};
+  ${(props: ButtonProps) =>
+    props.shadow
+      ? `
+  box-shadow: ${props.shadow}
+  `
+      : ''};
+&:active{
+    transform: scale(0.99)
+}
+`

@@ -5,7 +5,11 @@ type TextProps = {
   color?: string
   bold?: boolean
   width?: number
-  position?: 'absolute'
+  position?: string
+  background?: string
+  gradient?: boolean
+  top?: number
+  left?: number
 }
 export const Text = styled.p`
   margin: 0;
@@ -14,26 +18,17 @@ export const Text = styled.p`
   color: ${(props: TextProps) => props.color || '#FFFFFF'};
   font-weight: ${(props: TextProps) => (props.bold ? 'bold' : 'normal')};
   width: ${(props: TextProps) => (props.width ? props.width + 'px' : '100%')};
-`
-
-type GradientTextProps = TextProps & {
-  background: string
-}
-
-export const GradientText = styled(Text)`
-  text-transform: uppercase;
-  background: ${(props: GradientTextProps) => props.background};
+  ${(props: TextProps) =>
+    props.gradient
+      ? ` text-transform: uppercase;
+  background: ${props.background};
   -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-`
-
-type AbsoluteTextProps = TextProps & {
-  left: number
-  top: number
-}
-
-export const AbsoluteText = styled(Text)`
-  position: absolute;
-  left: ${(props: AbsoluteTextProps) => props.left}px;
-  top: ${(props: AbsoluteTextProps) => props.top}px;
+  -webkit-text-fill-color: transparent;`
+      : ''}
+  ${(props: TextProps) =>
+    props.position === 'absolute'
+      ? `position: absolute;
+    left: ${props.left}px;
+    top: ${props.top}px;`
+      : ''}
 `
