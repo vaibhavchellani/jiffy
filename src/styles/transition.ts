@@ -1,13 +1,13 @@
 type transitionType = {
-  property: string
-  length: number
-  ease: string
+  property?: string
+  length?: number
+  ease?: string
 }
 
 export default ({
   property = 'all',
-  length = 0.3,
+  length = 300,
   ease = 'ease',
 }: transitionType) => `
-    transition: ${property} ${length}s ${ease};
+    transition: ${property} ${length}ms ${ease};
 `

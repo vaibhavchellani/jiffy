@@ -9,13 +9,20 @@ type TextProps = {
   background?: string
   gradient?: boolean
   top?: number
+  themeColor?: boolean
   left?: number
+  theme?: {
+    color?: string
+  }
 }
 export const Text = styled.p`
   margin: 0;
   font-family: 'Roboto', sans-serif;
   font-size: ${(props: TextProps) => props.size || 28}em;
-  color: ${(props: TextProps) => props.color || '#FFFFFF'};
+  color: ${(props: TextProps) =>
+    props.themeColor && props.theme && props.theme.color
+      ? props.theme.color
+      : props.color || '#FFFFFF'};
   font-weight: ${(props: TextProps) => (props.bold ? 'bold' : 'normal')};
   width: ${(props: TextProps) => (props.width ? props.width + 'px' : '100%')};
   ${(props: TextProps) =>

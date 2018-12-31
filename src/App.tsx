@@ -10,7 +10,7 @@ import { bottomBarDetails } from 'data'
 
 const LazyHome = lazy(() => import('pages/Home'))
 
-const night: boolean = true
+const night: boolean = false
 
 export default () => (
   <ThemeProvider theme={themes[night ? 'dark' : 'light']}>
