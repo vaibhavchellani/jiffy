@@ -17,6 +17,14 @@ export const linearGradients = {
       shadow: '9px 12px 23px rgba(127, 105, 238, 0.23)',
     },
   ],
+  loginButton: {
+    gradient: 'linear-gradient(90deg, #6C67CE 0%, #6DA3F4 100%);',
+    shadow: '0px 4px 23px rgba(109, 163, 244, 0.46)',
+  },
+  metamaskButton: {
+    bgcolor: '#E88A3A;',
+    shadow: '0px 4px 23px rgba(238, 150, 63, 0.56)',
+  },
 }
 
 export const HomeContainer = styled.div`

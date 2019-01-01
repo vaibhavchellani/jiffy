@@ -11,7 +11,7 @@ import { bottomBarDetails } from 'data'
 
 const LazyHome = lazy(() => import('pages/Home'))
 
-const night: boolean = false
+const night: boolean = true
 
 export default () => (
   <IntlProvider locale="en">

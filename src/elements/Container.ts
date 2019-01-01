@@ -37,3 +37,10 @@ export const Container = styled.div`
     display: block;
   }
 `
+
+export const LoginModalContainer = styled.div`
+  display: flex;
+  @media screen and (max-width: 520px) {
+    display: block;
+  }
+`

@@ -25,7 +25,10 @@ export const Button = styled.button`
   box-shadow: ${props.shadow}
   `
       : ''};
-&:active{
-    transform: scale(0.99)
-}
+  &:hover {
+    
+  }
+  &:active{
+      transform: scale(0.99)
+  }
 `

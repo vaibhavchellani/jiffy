@@ -30,6 +30,7 @@
     "paths": {
       "*": ["src/*"],
       "components": ["src/components"],
+      "sharedComponent": ["./src/components/shared"],
       "pages": ["src/pages"],
       "data": ["src/data"],
       "elements": ["src/elements"],

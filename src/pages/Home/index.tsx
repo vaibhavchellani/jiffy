@@ -1,9 +1,10 @@
 import React, { Component } from 'react'
-import { Container, Text, Button } from 'elements'
+import { Container, Text, Button, LoginModalContainer } from 'elements'
+import { Toggle, Modal } from 'sharedComponent'
 
 import * as S from './styles'
 import { Info, DAppList } from 'components'
-import { DeployImg, ChoiceImg, LaptopImg } from 'image'
+import { DeployImg, ChoiceImg, LaptopImg, MetamaskLogo } from 'image'
 import { spanStyleCss } from 'styles'
 
 import { dAppListData, InfoData } from 'data'
@@ -49,19 +50,61 @@ export default class Home extends Component {
             </Text>
             <DAppList data={dAppListData} small />
           </div>
-          <Button
-            borderRadius={29.5}
-            height={'59px'}
-            backgroundColor={
-              'linear-gradient(90deg, #6C67CE 0%, #6DA3F4 100%);'
-            }
-            shadow={'0px 4px 23px rgba(109, 163, 244, 0.46)'}
-            style={{
-              margin: '14px 0',
-            }}
-          >
-            <Text size={1.5}>Login</Text>
-          </Button>
+          <Toggle>
+            {({ on, toggle }) => (
+              <>
+                <Button
+                  borderRadius={29.5}
+                  height={'59px'}
+                  backgroundColor={S.linearGradients.loginButton.gradient}
+                  shadow={S.linearGradients.loginButton.shadow}
+                  style={{
+                    margin: '14px 0',
+                  }}
+                  onClick={toggle}
+                >
+                  <Text size={1.5}>Login</Text>
+                </Button>
+                <Modal on={on} toggle={toggle}>
+                  <LoginModalContainer>
+                    <img
+                      src={MetamaskLogo}
+                      alt="metamaskLogo"
+                      style={{
+                        marginLeft: -65,
+                        marginTop: -55,
+                        paddingRight: 73,
+                      }}
+                    />
+                    <div
+                      style={{
+                        display: 'flex',
+                        flexDirection: 'column',
+                        justifyContent: 'center',
+                      }}
+                    >
+                      <p style={{ textAlign: 'center' }}>
+                        Connect to the MetaMask browser wallet.
+                      </p>
+                      <Button
+                        borderRadius={10}
+                        height={'59px'}
+                        backgroundColor={
+                          S.linearGradients.metamaskButton.bgcolor
+                        }
+                        shadow={S.linearGradients.metamaskButton.shadow}
+                        style={{
+                          margin: '14px 0',
+                        }}
+                      >
+                        <Text size={1.5}>Connect to Metamask</Text>
+                      </Button>
+                    </div>
+                  </LoginModalContainer>
+                </Modal>
+              </>
+            )}
+          </Toggle>
         </Container>
       </S.HomeContainer>
     )
