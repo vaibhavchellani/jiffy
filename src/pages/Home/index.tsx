@@ -1,12 +1,14 @@
 import React, { Component } from 'react'
-import { Container, HomeContainer, InfoContainer, Text, Button } from 'elements'
+import { Container, Text, Button } from 'elements'
 
 import * as S from './styles'
 import { Info, DAppList } from 'components'
 import { DeployImg, ChoiceImg, LaptopImg } from 'image'
 import { spanStyleCss } from 'styles'
 
-import { dAppList } from 'data'
+import { dAppListData, InfoData } from 'data'
+
+const images = [DeployImg, ChoiceImg, LaptopImg]
 export default class Home extends Component {
   public render() {
     return (
@@ -17,45 +19,21 @@ export default class Home extends Component {
               Prototype <br /> Review
               <span className={spanStyleCss}>AND</span>
             </Text>
-            <Text
-              gradient
-              background={'linear-gradient(90deg, #8AA4FF 0%, #FF00A8 100%) '}
-              size={3}
-              bold
-            >
+            <Text gradient background={S.linearGradients.text} size={3} bold>
               SMART <br />
               CONTRACTS
             </Text>
           </S.Box>
           <S.InfoContainer>
-            <Info
-              background={
-                'linear-gradient(257.74deg, #EC576C 3.94%, #EB5780 98.67%, #00E4FF 98.68%)'
-              }
-              shadow={'9px 12px 23px rgba(235, 87, 128, 0.23)'}
-              text="Deploy your smart contract to any network using Remix, Clevis, or Truffles"
-              heading="Deploy"
-              imgSrc={DeployImg}
-            />
-            <Info
-              background={
-                'linear-gradient(256.23deg, #F4AF3D 3.61%, #EE963F 97.57%);'
-              }
-              shadow={'9px 12px 23px rgba(246, 199, 117, 0.23);'}
-              text="Enter your ABI, network, and select your customizations."
-              heading="Choose"
-              imgSrc={ChoiceImg}
-            />
-
-            <Info
-              background={
-                'linear-gradient(256.24deg, #926FF0 4%, #7F69EE 98.46%);'
-              }
-              shadow={'9px 12px 23px rgba(127, 105, 238, 0.23);'}
-              text="Use and share your dApp/labels at a custom URL."
-              heading="Use"
-              imgSrc={LaptopImg}
-            />
+            {InfoData.map((info, i) => (
+              <Info
+                background={S.linearGradients.info[i].gradient}
+                shadow={S.linearGradients.info[i].shadow}
+                text={info.text}
+                heading={info.heading}
+                imgSrc={images[i]}
+              />
+            ))}
           </S.InfoContainer>
         </Container>
         <Container flexFlow="column">
@@ -69,7 +47,7 @@ export default class Home extends Component {
             >
               Recent Public dApps
             </Text>
-            <DAppList data={dAppList} small />
+            <DAppList data={dAppListData} small />
           </div>
           <Button
             borderRadius={29.5}

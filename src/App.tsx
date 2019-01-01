@@ -1,5 +1,6 @@
 import React, { lazy, Suspense } from 'react'
 import { BrowserRouter, Route } from 'react-router-dom'
+import { IntlProvider } from 'react-intl'
 import { ThemeProvider } from 'emotion-theming'
 
 import { themes } from 'styles'
@@ -13,16 +14,18 @@ const LazyHome = lazy(() => import('pages/Home'))
 const night: boolean = false
 
 export default () => (
-  <ThemeProvider theme={themes[night ? 'dark' : 'light']}>
-    <MainContainer>
-      <BrowserRouter>
-        <Route exact path="/" component={WaitingComponent(LazyHome)} />
-      </BrowserRouter>
-    </MainContainer>
-    <BottomContainer>
-      <BlockchainDetails data={bottomBarDetails} />
-    </BottomContainer>
-  </ThemeProvider>
+  <IntlProvider locale="en">
+    <ThemeProvider theme={themes[night ? 'dark' : 'light']}>
+      <MainContainer>
+        <BrowserRouter>
+          <Route exact path="/" component={WaitingComponent(LazyHome)} />
+        </BrowserRouter>
+      </MainContainer>
+      <BottomContainer>
+        <BlockchainDetails data={bottomBarDetails} />
+      </BottomContainer>
+    </ThemeProvider>
+  </IntlProvider>
 )
 
 const WaitingComponent = <P extends object>(

@@ -17,7 +17,23 @@ export const bottomBarDetails = [
   },
 ]
 
-export const dAppList = [
+export const InfoData = [
+  {
+    heading: 'Deploy',
+    text:
+      'Deploy your smart contract to any network using Remix, Clevis, or Truffles',
+  },
+  {
+    heading: 'Choose',
+    text: 'Enter your ABI, network, and select your customizations.',
+  },
+  {
+    heading: 'Use',
+    text: 'Use and share your dApp/labels at a custom URL.',
+  },
+]
+
+export const dAppListData = [
   {
     name: 'maker',
     createdAt: '2018-12-30T21:55:15.000Z',
