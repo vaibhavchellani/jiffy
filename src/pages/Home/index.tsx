@@ -71,8 +71,7 @@ export default class Home extends Component {
                       src={MetamaskLogo}
                       alt="metamaskLogo"
                       style={{
-                        marginLeft: -65,
-                        marginTop: -55,
+                        margin: '-56px -65px -35px -61px',
                         paddingRight: 73,
                       }}
                     />
@@ -81,6 +80,7 @@ export default class Home extends Component {
                         display: 'flex',
                         flexDirection: 'column',
                         justifyContent: 'center',
+                        marginTop: 25,
                       }}
                     >
                       <p style={{ textAlign: 'center' }}>
