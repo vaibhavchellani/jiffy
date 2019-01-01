@@ -19,6 +19,8 @@ export const Details = styled(
     },
   }),
 )`
+  position: fixed;
+  bottom: 0;
   width: calc(100vw * 0.79);
   margin: 55px auto 0;
   height: 59px;

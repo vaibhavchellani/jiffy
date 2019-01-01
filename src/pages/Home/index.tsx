@@ -38,18 +38,16 @@ export default class Home extends Component {
           </S.InfoContainer>
         </Container>
         <Container flexFlow="column">
-          <div>
-            <Text
-              size={1.3}
-              themeColor
-              style={{
-                padding: '0 20px',
-              }}
-            >
-              Recent Public dApps
-            </Text>
-            <DAppList data={dAppListData} small />
-          </div>
+          <Text
+            size={1.3}
+            themeColor
+            style={{
+              padding: '0 20px',
+            }}
+          >
+            Recent Public dApps
+          </Text>
+          <DAppList data={dAppListData} small />
           <Toggle>
             {({ on, toggle }) => (
               <>

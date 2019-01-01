@@ -31,9 +31,11 @@ export default class BlockchainDetails extends Component<{ data: dataType[] }> {
   public render() {
     const { data } = this.props
     return (
-      <S.Details initialPose="exit" pose="enter">
-        {this.renderDetails(data)}
-      </S.Details>
+      <div style={{ display: 'flex', justifyContent: 'center' }}>
+        <S.Details initialPose="exit" pose="enter">
+          {this.renderDetails(data)}
+        </S.Details>
+      </div>
     )
   }
 }

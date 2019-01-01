@@ -21,9 +21,7 @@ export default () => (
           <Route exact path="/" component={WaitingComponent(LazyHome)} />
         </BrowserRouter>
       </MainContainer>
-      <BottomContainer>
-        <BlockchainDetails data={bottomBarDetails} />
-      </BottomContainer>
+      <BlockchainDetails data={bottomBarDetails} />
     </ThemeProvider>
   </IntlProvider>
 )

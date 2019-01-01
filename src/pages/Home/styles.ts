@@ -30,6 +30,7 @@ export const linearGradients = {
 export const HomeContainer = styled.div`
   display: flex;
   font-size: 25px;
+  width: 100%;
   @media screen and (max-width: 768px) {
     display: block;
   }
