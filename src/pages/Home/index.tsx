@@ -40,7 +40,7 @@ export default class Home extends Component {
         <Container flexFlow="column">
           <div>
             <Text
-              size={1.5}
+              size={1.3}
               themeColor
               style={{
                 padding: '0 20px',

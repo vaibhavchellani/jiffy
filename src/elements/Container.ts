@@ -30,6 +30,7 @@ type ContainerProps = {
 export const Container = styled.div`
   width: 100%;
   padding: 10px;
+  justify-content: center;
   display: flex;
   flex-flow: ${(props: ContainerProps) =>
     props.flexFlow === 'column' ? 'column' : 'row'};

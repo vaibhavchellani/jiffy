@@ -46,9 +46,9 @@ type BoxProps = {
 
 export const Box = styled.div`
   max-width: 775px;
-  padding: 124px 40px;
+  padding: 84px 40px;
   position: relative;
-  height: calc(100vh * 0.55);
+  height: 444px;
   background: ${(props: BoxProps) => props.background};
   border-radius: 15px;
   @media screen and (max-width: 520px) {
