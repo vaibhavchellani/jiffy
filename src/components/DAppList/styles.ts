@@ -3,7 +3,7 @@ import { transition } from 'styles'
 
 export const AppList = styled.div`
   width: 100%;
-  height: 636px;
+  height: 534px;
   font-family: 'Roboto', sans-serif;
   overflow-y: scroll;
   padding: 0 20px;
