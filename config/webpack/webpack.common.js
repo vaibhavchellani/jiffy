@@ -17,6 +17,17 @@ module.exports = {
         test: /\.js$/,
         loader: 'source-map-loader',
       },
+      {
+        test: /.(gif|png|jpe?g|webp|svg)$/i,
+        use: [
+          {
+            loader: 'file-loader',
+            options: {
+              name: 'assets/[name].[ext]',
+            },
+          },
+        ],
+      },
     ],
   },
   plugins: [

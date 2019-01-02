@@ -1,38 +1,49 @@
-import * as React from 'react'
+import React, { lazy, Suspense } from 'react'
+import { BrowserRouter, Route, Switch } from 'react-router-dom'
+import { IntlProvider } from 'react-intl'
+import { ThemeProvider } from 'emotion-theming'
 
-import { BrowserRouter, Link, Route } from 'react-router-dom'
+import { themes } from 'styles'
+import { MainContainer, Wrapper } from 'elements'
+import { BlockchainDetails } from 'components'
 
-const Index = () => <h2>Home</h2>
-const About = () => <h2>About</h2>
-const Users = () => <h2>Users</h2>
+import { bottomBarDetails } from 'data'
+import { Spinner } from 'sharedComponent'
 
-type Props = {
-  text: string
-}
+const LazyHome = lazy(() => import('pages/Home'))
+const LazyDiscover = lazy(() => import('pages/Discover'))
 
-export default ({ text }: Props) => (
-  <>
-    <h1>Hello, {text}!</h1>
-    <BrowserRouter>
-      <div>
-        <nav>
-          <ul>
-            <li>
-              <Link to="/">Home</Link>
-            </li>
-            <li>
-              <Link to="/about/">About</Link>
-            </li>
-            <li>
-              <Link to="/users/">Users</Link>
-            </li>
-          </ul>
-        </nav>
+const night: boolean = true
 
-        <Route path="/" exact={true} component={Index} />
-        <Route path="/about/" component={About} />
-        <Route path="/users/" component={Users} />
-      </div>
-    </BrowserRouter>
-  </>
+export default () => (
+  <IntlProvider locale="en">
+    <ThemeProvider theme={themes[night ? 'dark' : 'light']}>
+      <MainContainer>
+        <BrowserRouter>
+          <Switch>
+            <Route exact path="/" component={WaitingComponent(LazyHome)} />
+            <Route
+              path="/discover"
+              component={WaitingComponent(LazyDiscover)}
+            />
+          </Switch>
+        </BrowserRouter>
+      </MainContainer>
+      <BlockchainDetails data={bottomBarDetails} />
+    </ThemeProvider>
+  </IntlProvider>
+)
+
+const WaitingComponent = <P extends object>(
+  Component: React.ComponentType<P>,
+) => (props: P) => (
+  <Suspense
+    fallback={
+      <Wrapper background>
+        <Spinner loading={true} size={20} />
+      </Wrapper>
+    }
+  >
+    <Component {...props} />
+  </Suspense>
 )

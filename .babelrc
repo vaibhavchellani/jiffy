@@ -4,19 +4,21 @@
     "@babel/proposal-object-rest-spread",
     "@babel/plugin-transform-runtime",
     "@babel/plugin-transform-react-inline-elements",
+    "@babel/plugin-syntax-dynamic-import",
     [
       "module-resolver",
       {
         "root": "./src",
         "alias": {
-          "@Src": "./src/App.jsx",
-          "@Components": "./src/components",
-          "@Pages": "./src/pages",
-          "@Elements": "./src/elements",
-          "@Styles": "./src/assets/styles",
-          "@Utils": "./src/utils",
-          "@HOC": "./src/hoc",
-          "@Image": "./src/assets/img"
+          "components": "./src/components",
+          "sharedComponent": "./src/components/shared",
+          "data": "./src/data",
+          "pages": "./src/pages",
+          "elements": "./src/elements",
+          "styles": "./src/styles",
+          "utils": "./src/utils",
+          "hOC": "./src/hoc",
+          "image": "./src/assets/img"
         }
       }
     ]
@@ -24,6 +26,7 @@
   "presets": [
     ["@babel/env", { "useBuiltIns": "usage", "modules": false }],
     "@babel/typescript",
-    "@babel/react"
+    "@babel/react",
+    "@emotion/babel-preset-css-prop"
   ]
 }

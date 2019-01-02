@@ -1,5 +1,17 @@
 $font-stack: Helvetica, Arial, sans-serif;
 
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+  user-select: none;
+  /*You just need this if you are only concerned with android and not desktop browsers.*/
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+html,
 body {
-  font: 100% $font-stack;
+  height: 100%;
+  margin: 0;
+  padding: 0;
 }
