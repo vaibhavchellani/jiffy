@@ -17,7 +17,14 @@ export default class Discover extends Component {
             zIndex: 999,
           }}
         >
-          <Text size={2.95} bold themeColor className="discoverText">
+          <Text
+            size={2.95}
+            bold
+            themeColor
+            className="discoverText"
+            initialPose="exit"
+            pose="enter"
+          >
             Discover
           </Text>
           <TopApps data={dAppListData} />
@@ -29,11 +36,20 @@ export default class Discover extends Component {
           }}
         >
           <div className="subheading">
-            <Text size={1.5} bold themeColor className="discoverText">
+            <Text
+              size={1.5}
+              bold
+              themeColor
+              className="discoverText"
+              initialPose="exit"
+              pose="enter"
+            >
               DApp
             </Text>
             <div className="search">
-              <FontAwesomeIcon icon="search" size="lg" />
+              <Text size={1.5} initialPose="exit" pose="enter">
+                <FontAwesomeIcon icon="search" size="lg" />
+              </Text>
             </div>
           </div>
           <DAppList

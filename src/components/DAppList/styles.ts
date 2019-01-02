@@ -96,7 +96,12 @@ export const SideIcon = styled(
   right: 10px;
 `
 
-export const TopApp = styled.div`
+export const TopApp = styled(
+  posed.div({
+    open: { x: '0%', staggerChildren: 100 },
+    closed: { x: '-5%' },
+  }),
+)`
   width: 100%;
   overflow-x: scroll;
   height: 188px;
@@ -173,3 +178,30 @@ export const TopApp = styled.div`
     }
   }
 `
+export const DAppList = styled(
+  posed.div({
+    hoverable: true,
+    pressable: true,
+    init: {
+      scale: 1,
+      boxShadow: '0px 0px 0px rgba(0,0,0,0)',
+    },
+    hover: {
+      scale: 1.035,
+      boxShadow: '0px 5px 10px rgba(0,0,0,0.2)',
+    },
+    press: {
+      scale: 1.025,
+      boxShadow: '0px 2px 5px rgba(0,0,0,0.1)',
+    },
+    open: { y: 0, opacity: 1 },
+    closed: { y: 20, opacity: 0 },
+  }),
+)``
+
+export const TopAppList = styled(
+  posed.div({
+    open: { x: 0, opacity: 1 },
+    closed: { x: -20, opacity: 0 },
+  }),
+)``

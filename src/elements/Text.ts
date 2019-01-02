@@ -1,4 +1,5 @@
 import styled from '@emotion/styled'
+import posed from 'react-pose'
 
 type TextProps = {
   size?: number
@@ -15,7 +16,24 @@ type TextProps = {
     color?: string
   }
 }
-export const Text = styled.p`
+export const Text = styled(
+  posed.p({
+    enter: {
+      x: 0,
+      opacity: 1,
+      delay: 500,
+      transition: {
+        y: { ease: 'easeInOut', duration: 400 },
+        default: { duration: 300 },
+      },
+    },
+    exit: {
+      x: -50,
+      opacity: 0,
+      transition: { duration: 150 },
+    },
+  }),
+)`
   margin: 0;
   font-family: 'Roboto', sans-serif;
   font-size: ${(props: TextProps) => props.size || 28}em;

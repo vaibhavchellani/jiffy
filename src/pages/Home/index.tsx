@@ -19,11 +19,18 @@ export default class Home extends Component {
             <S.EthImage src={Images.EthereumLogo} alt="Jiffy" />
             <S.WorldOfEther src={Images.WorldOfEther} alt="worldOfEther" />
             <S.CryptoKitty src={Images.CryptoKitties} alt="cryptokitty" />
-            <Text size={3} bold>
+            <Text size={3} bold initialPose="exit" pose="enter">
               Prototype <br /> Review
               <span className={spanStyleCss}>AND</span>
             </Text>
-            <Text gradient background={S.linearGradients.text} size={3} bold>
+            <Text
+              gradient
+              background={S.linearGradients.text}
+              size={3}
+              bold
+              initialPose="exit"
+              pose="enter"
+            >
               SMART <br />
               CONTRACTS
             </Text>
@@ -47,6 +54,8 @@ export default class Home extends Component {
             style={{
               padding: '0 20px',
             }}
+            initialPose="exit"
+            pose="enter"
           >
             Recent Public dApps
           </Text>

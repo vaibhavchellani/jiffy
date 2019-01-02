@@ -1,10 +1,9 @@
 import React, { Component } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
-import { List } from 'elements'
 import { Icon } from 'sharedComponent'
 import { PoseGroup } from 'react-pose'
-import { SideIcon } from './styles'
+import * as S from './styles'
 
 type AppProps = {
   id: string
@@ -17,7 +16,11 @@ type AppProps = {
   small?: boolean
 }
 
-export default class DApp extends Component<AppProps> {
+type AppState = {
+  hover: boolean
+}
+
+export default class DApp extends Component<AppProps, AppState> {
   public state = {
     hover: false,
   }
@@ -40,7 +43,7 @@ export default class DApp extends Component<AppProps> {
     } = this.props
 
     return (
-      <List
+      <S.DAppList
         className="app"
         key={id}
         onMouseOver={() => this.setState({ hover: true })}
@@ -62,12 +65,12 @@ export default class DApp extends Component<AppProps> {
         <div className="app__network">{network}</div>
         <PoseGroup>
           {this.state.hover && [
-            <SideIcon key="icon">
+            <S.SideIcon key="icon">
               <FontAwesomeIcon icon="angle-double-right" size="lg" />
-            </SideIcon>,
+            </S.SideIcon>,
           ]}
         </PoseGroup>
-      </List>
+      </S.DAppList>
     )
   }
 }

@@ -11,10 +11,25 @@ type TopAppProp = {
   imgSrc: string
 }
 
-export default class TopApps extends Component<{ data: TopAppProp[] }> {
+type TopAppState = {
+  isOpen: boolean
+}
+
+export default class TopApps extends Component<
+  { data: TopAppProp[] },
+  TopAppState
+> {
+  public state = { isOpen: false }
+
+  public componentDidMount() {
+    setTimeout(this.toggle, 1000)
+  }
+
+  public toggle = () => this.setState({ isOpen: !this.state.isOpen })
+
   public renderList = (data: TopAppProp[]) =>
     data.map((el: TopAppProp) => (
-      <div className="app" key={el.id}>
+      <S.TopAppList className="app" key={el.id}>
         <div className="app__details">
           <img className="app__details__img" src={el.imgSrc} />
           <p>{el.name}</p>
@@ -31,14 +46,17 @@ export default class TopApps extends Component<{ data: TopAppProp[] }> {
             <div>3 days</div>
           </div>
         </div>
-      </div>
+      </S.TopAppList>
     ))
 
   public render() {
     const { data } = this.props
+    const { isOpen } = this.state
     return (
       <Wrapper margin={'0 36px'} style={{ background: 'transparent' }}>
-        <S.TopApp>{this.renderList(data)}</S.TopApp>
+        <S.TopApp pose={isOpen ? 'open' : 'closed'}>
+          {this.renderList(data)}
+        </S.TopApp>
       </Wrapper>
     )
   }
