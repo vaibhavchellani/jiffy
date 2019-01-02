@@ -23,6 +23,7 @@ export const Details = styled(
   bottom: 0;
   width: calc(100vw * 0.79);
   margin: 55px auto 0;
+  z-index: 99999999;
   height: 59px;
   font-family: 'Roboto', sans-serif;
   display: flex;
