@@ -1,4 +1,5 @@
 import styled from '@emotion/styled'
+import posed from 'react-pose'
 
 export const MainContainer = styled.div`
   width: 100%;
@@ -41,3 +42,35 @@ export const LoginModalContainer = styled.div`
     display: block;
   }
 `
+
+export const Wrapper = styled.div`
+  background: ${props => props.theme.background};
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+`
+
+export const List = styled(
+  posed.div({
+    hoverable: true,
+    pressable: true,
+    init: {
+      scale: 1,
+      boxShadow: '0px 0px 0px rgba(0,0,0,0)',
+    },
+    hover: {
+      scale: 1.035,
+      boxShadow: '0px 5px 10px rgba(0,0,0,0.2)',
+    },
+    press: {
+      scale: 1.025,
+      boxShadow: '0px 2px 5px rgba(0,0,0,0.1)',
+    },
+    open: { y: 0, opacity: 1 },
+    closed: { y: 20, opacity: 0 },
+  }),
+)``

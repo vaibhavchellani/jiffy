@@ -41,22 +41,24 @@ const ModalWrapper = styled(
       y: 0,
       opacity: 1,
       transition: {
-        y: { ease: 'easeInOut' },
+        y: { ease: 'linear' },
         default: { duration: 150 },
       },
+      applyAtStart: { position: 'fixed' },
     },
     exit: {
       y: 50,
       opacity: 0,
       transition: { duration: 150 },
     },
+    applyAtStart: { position: 'fixed' },
   }),
 )`
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
-  width: 100%;
-  height: 100%;
+  bottom: 0;
+  right: 0;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -84,6 +86,7 @@ const ModalCard = styled.div`
   }
   @media screen and (max-width: 520px) {
     margin: 10px;
+    min-width: 47px;
   }
 `
 
@@ -106,10 +109,10 @@ const Shade = styled(
     exit: { opacity: 0 },
   }),
 )`
-  position: absolute;
+  position: fixed;
   background: rgba(0, 0, 0, 0.8);
   top: 0;
   left: 0;
-  right: 0;
   bottom: 0;
+  right: 0;
 `

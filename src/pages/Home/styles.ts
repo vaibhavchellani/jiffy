@@ -1,4 +1,5 @@
 import styled from '@emotion/styled'
+import { keyframes } from '@emotion/core'
 
 export const linearGradients = {
   text: 'linear-gradient(90deg, #8AA4FF 0%, #FF00A8 100%)',
@@ -48,6 +49,7 @@ type BoxProps = {
 export const Box = styled.div`
   max-width: 775px;
   padding: 0 26px;
+  overflow: hidden;
   position: relative;
   height: 14em;
   border-radius: 15px;
@@ -68,5 +70,87 @@ export const InfoContainer = styled.div`
   @media screen and (max-width: 520px) {
     display: block;
     width: 100%;
+  }
+`
+
+const float = keyframes`
+	0% {
+		transform: translatey(0px);
+	}
+	50% {
+		transform: translatey(-10px);
+	}
+	100% {
+		transform: translatey(0px);
+	}
+`
+
+const rollOver = (
+  x: number,
+  y: number,
+  initDeg?: number,
+  finalDeg?: number,
+) => keyframes`
+      0% {
+          opacity:0;
+          transform: translate(${x}px,${y}px) ${
+  initDeg ? `rotate(${initDeg}deg)` : ''
+};
+      }
+      100% {
+          opacity:1;
+          transform: translate(0,0) ${finalDeg ? `rotate(${finalDeg}deg)` : ''};
+      }
+  `
+
+export const EthImage = styled.img`
+  position: absolute;
+  top: 65px;
+  right: 13px;
+  animation: ${float} 1.75s ease infinite, ${rollOver(0, 100)} 1.05s;
+  width: 157px;
+  @media screen and (max-width: 1400px) {
+    width: 114px;
+  }
+  @media screen and (max-width: 520px) {
+    width: 94px;
+    top: 117px;
+  }
+  @media screen and (max-width: 320px) {
+    width: 61px;
+    top: 171px;
+  }
+`
+
+export const CryptoKitty = styled.img`
+  position: absolute;
+  top: -17px;
+  opacity: 0;
+  border-radius: 50%;
+  right: -11px;
+  width: 83px;
+  animation: ${rollOver(50, -60, 45, 0)} 1s cubic-bezier(0.23, 0.15, 0.09, 1.57)
+    2s;
+  animation-fill-mode: forwards;
+  @media screen and (max-width: 520px) {
+    width: 93px;
+    top: -15px;
+  }
+`
+
+export const WorldOfEther = styled.img`
+  position: absolute;
+  top: -36px;
+  opacity: 0;
+  border-radius: 50%;
+  right: 49px;
+  width: 83px;
+  animation: ${rollOver(-20, -60, 65, 0)} 1s
+    cubic-bezier(0.23, 0.15, 0.09, 1.57) 3s;
+  animation-fill-mode: forwards;
+  @media screen and (max-width: 520px) {
+    width: 93px;
+    top: -39px;
+    right: 64px;
   }
 `

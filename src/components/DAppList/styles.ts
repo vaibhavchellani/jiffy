@@ -1,7 +1,17 @@
 import styled from '@emotion/styled'
+import posed from 'react-pose'
 import { transition } from 'styles'
 
-export const AppList = styled.div`
+export const AppList = styled(
+  posed.div({
+    open: {
+      y: '0%',
+      delayChildren: 200,
+      staggerChildren: 200,
+    },
+    closed: { y: '100%', delay: 300 },
+  }),
+)`
   width: 100%;
   height: 500px;
   font-family: 'Roboto', sans-serif;
@@ -21,11 +31,6 @@ export const AppList = styled.div`
     display: flex;
     justify-content: space-around;
     ${transition({ property: 'transform' })}
-
-    &:hover {
-      transform: scale(1.035);
-      background: rgba(38, 38, 38, 0.55);
-    }
     &__details {
       display: flex;
       &__img {
@@ -54,4 +59,27 @@ export const AppList = styled.div`
   @media screen and (max-width: 768px) {
     height: 500px;
   }
+`
+
+export const SideIcon = styled(
+  posed.div({
+    enter: {
+      x: -10,
+      opacity: 1,
+      transition: {
+        y: { ease: 'linear' },
+        default: { duration: 150 },
+      },
+      applyAtStart: { position: 'fixed' },
+    },
+    exit: {
+      x: -50,
+      opacity: 0,
+      transition: { duration: 150 },
+    },
+    applyAtStart: { position: 'fixed' },
+  }),
+)`
+  position: fixed;
+  right: 10px;
 `

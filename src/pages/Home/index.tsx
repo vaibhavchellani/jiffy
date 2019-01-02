@@ -4,18 +4,21 @@ import { Toggle, Modal } from 'sharedComponent'
 
 import * as S from './styles'
 import { Info, DAppList } from 'components'
-import { DeployImg, ChoiceImg, LaptopImg, MetamaskLogo } from 'image'
+import * as Images from 'image'
 import { spanStyleCss } from 'styles'
 
 import { dAppListData, InfoData } from 'data'
 
-const images = [DeployImg, ChoiceImg, LaptopImg]
+const images = [Images.DeployImg, Images.ChoiceImg, Images.LaptopImg]
 export default class Home extends Component {
   public render() {
     return (
       <S.HomeContainer>
         <Container flexFlow="column">
           <S.Box background={'#212121'}>
+            <S.EthImage src={Images.EthereumLogo} alt="Jiffy" />
+            <S.WorldOfEther src={Images.WorldOfEther} alt="worldOfEther" />
+            <S.CryptoKitty src={Images.CryptoKitties} alt="cryptokitty" />
             <Text size={3} bold>
               Prototype <br /> Review
               <span className={spanStyleCss}>AND</span>
@@ -66,7 +69,7 @@ export default class Home extends Component {
                 <Modal on={on} toggle={toggle}>
                   <LoginModalContainer>
                     <img
-                      src={MetamaskLogo}
+                      src={Images.MetamaskLogo}
                       alt="metamaskLogo"
                       style={{
                         margin: '-56px -65px -35px -61px',
@@ -82,7 +85,11 @@ export default class Home extends Component {
                       }}
                     >
                       <p style={{ textAlign: 'center' }}>
-                        Connect to the MetaMask browser wallet.
+                        Connect to the{' '}
+                        <a href="https://metamask.io/" target="_blank">
+                          MetaMask browser wallet
+                        </a>
+                        .
                       </p>
                       <Button
                         borderRadius={10}

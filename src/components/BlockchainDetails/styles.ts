@@ -44,7 +44,7 @@ export const Details = styled(
     }
   }
   @media screen and (min-width: 1024px) {
-    padding: 23px 176px;
+    padding: 23px 138px;
   }
   @media screen and (max-width: 768px) {
     width: calc(100vw * 0.99);

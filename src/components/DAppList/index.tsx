@@ -1,9 +1,12 @@
 import React, { Component } from 'react'
 
 import * as S from './styles'
-import Icon from '../shared/Icon'
+import { Wrapper, Text } from 'elements'
+import { Spinner } from 'sharedComponent'
+import DApp from './DApp'
 
 type AppType = {
+  id: string
   name: string
   createdAt: string
   creatorAddress: string
@@ -16,28 +19,33 @@ export default class DAppList extends Component<{
   data: AppType[]
   small: boolean | undefined
 }> {
+  public state = { isOpen: false }
+
+  public componentDidMount() {
+    setTimeout(this.toggle, 1000)
+  }
+
+  public toggle = () => this.setState({ isOpen: !this.state.isOpen })
+
   public renderDetails = (data: AppType[], small: boolean | undefined) =>
-    data.map((el, i) => (
-      <div className="app">
-        <div className="app__details">
-          {!!!small && <img className="app__details__img" src={el.imgSrc} />}
-          <div className="app__details__name">{el.name}</div>
-        </div>
-        <img className="app__creator" src={el.creatorImgSrc} />
-        {!!!small && (
-          <div className="app__time">
-            <div className="app__time__icon">
-              <Icon name="clock" size={30} />
-            </div>
-            <div className="app__time__createdAt">{el.createdAt}</div>
-          </div>
-        )}
-        <div className="app__network">{el.network}</div>
-      </div>
-    ))
+    data.length > 0 ? (
+      data.map((el, i) => <DApp key={el.id} {...el} small={small} />)
+    ) : (
+      <Wrapper>
+        <Spinner loading={true} size={60} />
+        <Text size={1} themeColor>
+          Loading App ...
+        </Text>
+      </Wrapper>
+    )
 
   public render() {
     const { data, small } = this.props
-    return <S.AppList>{this.renderDetails(data, small)}</S.AppList>
+    const { isOpen } = this.state
+    return (
+      <S.AppList pose={isOpen ? 'open' : 'closed'}>
+        {this.renderDetails(data, small)}
+      </S.AppList>
+    )
   }
 }

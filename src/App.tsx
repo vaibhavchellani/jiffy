@@ -4,10 +4,11 @@ import { IntlProvider } from 'react-intl'
 import { ThemeProvider } from 'emotion-theming'
 
 import { themes } from 'styles'
-import { MainContainer, BottomContainer } from 'elements'
+import { MainContainer, Wrapper } from 'elements'
 import { BlockchainDetails } from 'components'
 
 import { bottomBarDetails } from 'data'
+import { Spinner } from 'sharedComponent'
 
 const LazyHome = lazy(() => import('pages/Home'))
 
@@ -29,7 +30,13 @@ export default () => (
 const WaitingComponent = <P extends object>(
   Component: React.ComponentType<P>,
 ) => (props: P) => (
-  <Suspense fallback={<div>Loading...</div>}>
+  <Suspense
+    fallback={
+      <Wrapper>
+        <Spinner loading={true} size={20} />
+      </Wrapper>
+    }
+  >
     <Component {...props} />
   </Suspense>
 )
