@@ -3,7 +3,7 @@ import { render } from 'react-dom'
 import { addLocaleData } from 'react-intl'
 import en from 'react-intl/locale-data/en'
 import { library } from '@fortawesome/fontawesome-svg-core'
-import { faAngleDoubleRight } from '@fortawesome/free-solid-svg-icons'
+import { faAngleDoubleRight, faSearch } from '@fortawesome/free-solid-svg-icons'
 
 import App from './App'
 import './index.scss'
@@ -12,7 +12,7 @@ declare let module: any
 
 addLocaleData(en)
 
-library.add(faAngleDoubleRight)
+library.add(faAngleDoubleRight, faSearch)
 
 render(<App />, document.getElementById('root'))
 

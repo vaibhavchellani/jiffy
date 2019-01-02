@@ -13,7 +13,7 @@ import { Spinner } from 'sharedComponent'
 const LazyHome = lazy(() => import('pages/Home'))
 const LazyDiscover = lazy(() => import('pages/Discover'))
 
-const night: boolean = false
+const night: boolean = true
 
 export default () => (
   <IntlProvider locale="en">

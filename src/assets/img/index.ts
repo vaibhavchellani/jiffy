@@ -5,6 +5,7 @@ import MetamaskLogo from './metamask.webp'
 import EthereumLogo from './ethereum.webp'
 import CryptoKitties from './cryptoKitties.webp'
 import WorldOfEther from './worldOfEther.webp'
+import Rocket from './rocket.webp'
 
 export {
   DeployImg,
@@ -13,5 +14,6 @@ export {
   MetamaskLogo,
   EthereumLogo,
   WorldOfEther,
+  Rocket,
   CryptoKitties,
 }

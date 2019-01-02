@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
-import { Wrapper, List } from 'elements'
+import { Wrapper } from 'elements'
+import { Icon } from 'sharedComponent'
 import * as S from './styles'
 
 type TopAppProp = {
@@ -20,9 +21,15 @@ export default class TopApps extends Component<{ data: TopAppProp[] }> {
         </div>
         <hr className="app__line" />
         <div className="app__bottomDetails">
-          <div>{el.network}</div>
+          <div className="app__bottomDetails__network">
+            <Icon name="ethereum" size={20} />
+            <div>{el.network}</div>
+          </div>
           {/* <div>{createdAt}</div> */}
-          <div>3 days</div>
+          <div className="app__bottomDetails__time">
+            <Icon name="clock" size={20} />
+            <div>3 days</div>
+          </div>
         </div>
       </div>
     ))
@@ -30,7 +37,7 @@ export default class TopApps extends Component<{ data: TopAppProp[] }> {
   public render() {
     const { data } = this.props
     return (
-      <Wrapper margin={'0 36px'}>
+      <Wrapper margin={'0 36px'} style={{ background: 'transparent' }}>
         <S.TopApp>{this.renderList(data)}</S.TopApp>
       </Wrapper>
     )

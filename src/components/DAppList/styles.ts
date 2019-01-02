@@ -126,6 +126,7 @@ export const TopApp = styled.div`
       width: 178px;
       height: 145px;
       display: flex;
+      font-weight: bold;
       justify-content: center;
       align-items: center;
       flex-direction: column;
@@ -155,6 +156,20 @@ export const TopApp = styled.div`
       width: 178px;
       height: 39px;
       border-radius: 8px;
+      &__network {
+        display: flex;
+        svg {
+          margin: -1px;
+          fill: ${props => props.theme.color};
+        }
+      }
+      &__time {
+        display: flex;
+        svg {
+          margin: -1px 5px;
+          fill: ${props => props.theme.color};
+        }
+      }
     }
   }
 `
