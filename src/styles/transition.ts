@@ -1,13 +1,14 @@
 type transitionType = {
-  property?: string
+  property: string
   length?: number
   ease?: string
 }
 
-export default ({
-  property = 'all',
-  length = 300,
-  ease = 'ease',
-}: transitionType) => `
-    transition: ${property} ${length}ms ${ease};
+export default (props: transitionType[]) => `
+    transition: ${props
+      .map(
+        (prop: transitionType) =>
+          `${prop.property} ${prop.length || 300}ms ${prop.ease || 'ease-in'}`,
+      )
+      .join(', ')};
 `

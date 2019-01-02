@@ -1,5 +1,5 @@
 import React, { lazy, Suspense } from 'react'
-import { BrowserRouter, Route } from 'react-router-dom'
+import { BrowserRouter, Route, Switch } from 'react-router-dom'
 import { IntlProvider } from 'react-intl'
 import { ThemeProvider } from 'emotion-theming'
 
@@ -11,15 +11,22 @@ import { bottomBarDetails } from 'data'
 import { Spinner } from 'sharedComponent'
 
 const LazyHome = lazy(() => import('pages/Home'))
+const LazyDiscover = lazy(() => import('pages/Discover'))
 
-const night: boolean = true
+const night: boolean = false
 
 export default () => (
   <IntlProvider locale="en">
     <ThemeProvider theme={themes[night ? 'dark' : 'light']}>
       <MainContainer>
         <BrowserRouter>
-          <Route exact path="/" component={WaitingComponent(LazyHome)} />
+          <Switch>
+            <Route exact path="/" component={WaitingComponent(LazyHome)} />
+            <Route
+              path="/discover"
+              component={WaitingComponent(LazyDiscover)}
+            />
+          </Switch>
         </BrowserRouter>
       </MainContainer>
       <BlockchainDetails data={bottomBarDetails} />
@@ -32,7 +39,7 @@ const WaitingComponent = <P extends object>(
 ) => (props: P) => (
   <Suspense
     fallback={
-      <Wrapper>
+      <Wrapper background>
         <Spinner loading={true} size={20} />
       </Wrapper>
     }

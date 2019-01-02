@@ -13,13 +13,17 @@ export const AppList = styled(
   }),
 )`
   width: 100%;
-  height: 500px;
+  height: ${props => props.height || '100%'};
   font-family: 'Roboto', sans-serif;
   overflow-y: scroll;
-  padding: 0 20px;
+  padding: ${props => props.padding || '0 20px'};
   margin-top: 10px;
   color: ${props => props.theme.color};
   .app {
+    &:hover {
+      background: ${props =>
+        props.theme.name === 'dark' ? '#6b6b6b' : '#cecece'};
+    }
     border-radius: 8px;
     padding-top: 8px;
     margin: 10px 0;
@@ -30,7 +34,7 @@ export const AppList = styled(
     line-height: 2.6;
     display: flex;
     justify-content: space-around;
-    ${transition({ property: 'transform' })}
+    ${transition([{ property: 'transform' }, { property: 'background' }])}
     &__details {
       display: flex;
       &__img {
@@ -57,7 +61,15 @@ export const AppList = styled(
     }
   }
   @media screen and (max-width: 768px) {
-    height: 500px;
+    padding: 0 5px;
+    .app {
+      &__creator {
+        display: none;
+      }
+      &__time {
+        display: none;
+      }
+    }
   }
 `
 
@@ -82,4 +94,67 @@ export const SideIcon = styled(
 )`
   position: fixed;
   right: 10px;
+`
+
+export const TopApp = styled.div`
+  width: 100%;
+  overflow-x: scroll;
+  height: 188px;
+  font-family: 'Roboto', sans-serif;
+  display: flex;
+  position: relative;
+  border-radius: 8px;
+  border-radius: 8px;
+  height: 197px;
+  z-index: 22;
+  color: ${props => props.theme.color};
+
+  .app {
+    width: 178px;
+    height: 188px;
+    cursor: pointer;
+    :first-of-type {
+      margin-left: 0;
+    }
+    margin: 0 8px;
+    background: ${props =>
+      props.theme.name === 'dark' ? '#212121' : '#ababab'};
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.25);
+    border-radius: 8px;
+    position: relative;
+    &__details {
+      width: 178px;
+      height: 145px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      &__img {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+      }
+      p {
+        font-size: 20px;
+      }
+    }
+    &__line {
+      position: absolute;
+      width: 179px;
+      height: 3px;
+      left: 0;
+      border: none;
+      top: 128px;
+      background: ${props => props.theme.background};
+    }
+    &__bottomDetails {
+      display: flex;
+      font-size: 15px;
+      justify-content: space-around;
+      align-items: center;
+      width: 178px;
+      height: 39px;
+      border-radius: 8px;
+    }
+  }
 `

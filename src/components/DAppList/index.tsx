@@ -5,6 +5,8 @@ import { Wrapper, Text } from 'elements'
 import { Spinner } from 'sharedComponent'
 import DApp from './DApp'
 
+import TopApps from './TopApps'
+
 type AppType = {
   id: string
   name: string
@@ -15,9 +17,11 @@ type AppType = {
   creatorImgSrc?: string
 }
 
-export default class DAppList extends Component<{
+class DAppList extends Component<{
   data: AppType[]
-  small: boolean | undefined
+  small?: boolean | undefined
+  padding?: string
+  height?: string
 }> {
   public state = { isOpen: false }
 
@@ -27,7 +31,10 @@ export default class DAppList extends Component<{
 
   public toggle = () => this.setState({ isOpen: !this.state.isOpen })
 
-  public renderDetails = (data: AppType[], small: boolean | undefined) =>
+  public renderDetails = (
+    data: AppType[],
+    small: boolean | undefined,
+  ): JSX.Element[] | JSX.Element =>
     data.length > 0 ? (
       data.map((el, i) => <DApp key={el.id} {...el} small={small} />)
     ) : (
@@ -40,12 +47,18 @@ export default class DAppList extends Component<{
     )
 
   public render() {
-    const { data, small } = this.props
+    const { data, small, padding, height } = this.props
     const { isOpen } = this.state
     return (
-      <S.AppList pose={isOpen ? 'open' : 'closed'}>
+      <S.AppList
+        pose={isOpen ? 'open' : 'closed'}
+        padding={padding}
+        height={height}
+      >
         {this.renderDetails(data, small)}
       </S.AppList>
     )
   }
 }
+
+export { DAppList, TopApps }

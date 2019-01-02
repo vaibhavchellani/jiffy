@@ -76,11 +76,13 @@ const ModalCard = styled.div`
   margin: 0 auto;
   color: #000;
   ${elevation[3]};
-  ${transition({
-    property: 'box-shadow',
-    length: 300,
-    ease: 'ease-in',
-  })};
+  ${transition([
+    {
+      property: 'box-shadow',
+      length: 300,
+      ease: 'ease-in',
+    },
+  ])};
   &:hover {
     ${elevation[4]};
   }

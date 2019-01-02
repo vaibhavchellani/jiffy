@@ -50,7 +50,7 @@ export default class Home extends Component {
           >
             Recent Public dApps
           </Text>
-          <DAppList data={dAppListData} small />
+          <DAppList data={dAppListData} small height={'500px'} />
           <Toggle>
             {({ on, toggle }) => (
               <>

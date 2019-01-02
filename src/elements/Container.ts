@@ -43,15 +43,34 @@ export const LoginModalContainer = styled.div`
   }
 `
 
+type WrapperProps = {
+  background?: boolean
+  margin?: string
+}
+
 export const Wrapper = styled.div`
   background: ${props => props.theme.background};
   display: flex;
+  ${(props: WrapperProps) =>
+    props.background
+      ? ` padding: 0;
+  margin: 0;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
   flex-direction: column;
   text-align: center;
   justify-content: center;
   align-items: center;
   width: 100%;
-  height: 100%;
+  min-height: 2px;`
+      : ''}
+ margin: ${(props: WrapperProps) => (props.margin ? props.margin : '0px')};
+  @media screen and (max-width: 768px) {
+    margin: 0px;
+  }
 `
 
 export const List = styled(
