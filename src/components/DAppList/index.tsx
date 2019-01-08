@@ -21,7 +21,7 @@ class DAppList extends Component<{
   data: AppType[]
   small?: boolean | undefined
   padding?: string
-  height?: string
+  height?: number
 }> {
   public state = { isOpen: false }
 

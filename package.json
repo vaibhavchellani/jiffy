@@ -3,7 +3,7 @@
   "version": "0.0.1",
   "description": "Jiffy Web",
   "author": "Shubham Singh <imshubhamsingh@gmail.com>",
-  "license": "GNU",
+  "license": "AGPL-3.0-or-later",
   "scripts": {
     "build": "yarn format && yarn typecheck && yarn lint && webpack --config config/webpack/webpack.prod.js",
     "watch": "webpack-dev-server --mode development --config config/webpack/webpack.dev.js --port 3000 --open",

@@ -52,11 +52,7 @@ export default class Discover extends Component {
               </Text>
             </div>
           </div>
-          <DAppList
-            data={dAppListData}
-            padding={'0 40px'}
-            height={'calc(100vh*0.50);'}
-          />
+          <DAppList data={dAppListData} padding={'0 40px'} height={50} />
         </div>
         <img className="rocket" src={Rocket} />
       </S.DiscoverContainer>
