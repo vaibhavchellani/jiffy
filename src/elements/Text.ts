@@ -22,6 +22,8 @@ export const Text = styled(
       x: 0,
       opacity: 1,
       delay: 500,
+      delayChildren: 100,
+      staggerChildren: 50,
       transition: {
         y: { ease: 'easeInOut', duration: 400 },
         default: { duration: 300 },

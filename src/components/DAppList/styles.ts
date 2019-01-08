@@ -13,7 +13,7 @@ export const AppList = styled(
   }),
 )`
   width: 100%;
-  height: ${props => `calc(100vh*${props.height / 100})` || '100%'};
+  height: ${props => props.height || '100%'};
   font-family: 'Roboto', sans-serif;
   overflow-y: scroll;
   padding: ${props => props.padding || '0 20px'};

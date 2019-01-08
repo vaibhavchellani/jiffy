@@ -6,6 +6,7 @@ import EthereumLogo from './ethereum.webp'
 import CryptoKitties from './cryptoKitties.webp'
 import WorldOfEther from './worldOfEther.webp'
 import Rocket from './rocket.webp'
+import SolidityLogo from './solidity.webp'
 
 export {
   DeployImg,
@@ -16,4 +17,5 @@ export {
   WorldOfEther,
   Rocket,
   CryptoKitties,
+  SolidityLogo,
 }
