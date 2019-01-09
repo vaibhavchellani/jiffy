@@ -1,6 +1,6 @@
 import styled from '@emotion/styled'
 import posed from 'react-pose'
-import { transition } from 'styles'
+import { transition, themes } from 'styles'
 
 export const ChooseContainer = styled.div`
   width: 100%;
@@ -73,10 +73,18 @@ export const ChooseBox = styled(
   cursor: pointer;
   min-width: 320px;
   ${transition([{ property: 'background' }, { property: 'border' }])}
-  background: #22292f;
+  background: ${props => (props.theme.name === 'dark' ? '#22292f' : '#cccccc')};
   border-radius: 15px;
   &:hover {
-    background: #212121;
+    background: ${props =>
+      props.theme.name === 'dark' ? '#212121' : '#ffffff'};
+    .chooseImg1 {
+      filter: 
+      ${props => (props.theme.name === 'dark' ? 'invert(70%)' : 'invert(20%)')};
+    }
+    .chooseImg2 {
+      opacity: 1;
+    }
   }
   @media screen and (max-width: 728px) {
     min-width: 20px;
@@ -90,4 +98,14 @@ export const Solidity = styled.img`
   filter: invert(41%);
   bottom: -38px;
   right: -20px;
+  ${transition([{ property: 'filter' }])}
+`
+
+export const Label = styled.img`
+  position: absolute;
+  width: 451px;
+  ${transition([{ property: 'opacity' }])}
+  opacity: 0.5;
+  bottom: -1px;
+  right: -10px;
 `
