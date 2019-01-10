@@ -36,6 +36,7 @@ export const Text = styled(
     },
   }),
 )`
+  text-decoration: none;
   margin: 0;
   font-family: 'Roboto', sans-serif;
   font-size: ${(props: TextProps) => props.size || 28}em;

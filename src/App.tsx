@@ -13,6 +13,8 @@ import { WaitingComponent } from 'sharedComponent'
 const LazyHome = lazy(() => import('pages/Home'))
 const LazyDiscover = lazy(() => import('pages/Discover'))
 const LazyChoose = lazy(() => import('pages/Choose'))
+const LazyDApp = lazy(() => import('pages/Choose/DApp'))
+const LazyLabel = lazy(() => import('pages/Choose/Label'))
 
 const night: boolean = true
 
@@ -27,7 +29,16 @@ export default () => (
               path="/discover"
               component={WaitingComponent(LazyDiscover)}
             />
-            <Route path="/choose" component={WaitingComponent(LazyChoose)} />
+            <Route
+              exact
+              path="/choose"
+              component={WaitingComponent(LazyChoose)}
+            />
+            <Route path="/choose/dapp" component={WaitingComponent(LazyDApp)} />
+            <Route
+              path="/choose/label"
+              component={WaitingComponent(LazyLabel)}
+            />
           </Switch>
         </BrowserRouter>
       </MainContainer>

@@ -1,6 +1,7 @@
 import styled from '@emotion/styled'
+import { Link } from 'react-router-dom'
 import posed from 'react-pose'
-import { transition, themes } from 'styles'
+import { transition } from 'styles'
 
 export const ChooseContainer = styled.div`
   width: 100%;
@@ -45,6 +46,18 @@ export const ChooseBoxContainer = styled(
   }
 `
 
+export const SLink = styled(Link)`
+  text-decoration: none;
+  margin: 20px;
+  &:focus,
+  &:hover,
+  &:visited,
+  &:link,
+  &:active {
+    text-decoration: none;
+  }
+`
+
 export const ChooseBox = styled(
   posed.div({
     enter: {
@@ -65,7 +78,7 @@ export const ChooseBox = styled(
   }),
 )`
   position: relative;
-  margin: 20px;
+  text-decoration: none;
   height: 627px;
   width: 100%;
   padding: 50px;

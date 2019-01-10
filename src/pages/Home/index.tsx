@@ -57,7 +57,7 @@ export default class Home extends Component {
             initialPose="exit"
             pose="enter"
           >
-            Recent Public dApps
+            Recent Public ÐApps
           </Text>
           <DAppList data={dAppListData} small height={'500px'} />
           <Toggle>
