@@ -1,4 +1,5 @@
 import styled from '@emotion/styled'
+import { transition } from 'styles'
 
 type ButtonProps = {
   width?: string
@@ -30,5 +31,28 @@ export const Button = styled.button`
   }
   &:active{
       transform: scale(0.99)
+  }
+`
+
+type FormButtonProps = {
+  width?: string
+  height?: string
+  shadow?: string
+  borderRadius?: number
+  backgroundColor?: string
+}
+
+export const FormButton = styled.button`
+  background: #3ec28f;
+  border-radius: 9px;
+  width: ${(props: FormButtonProps) => props.width || '100%'};
+  height: ${(props: FormButtonProps) => props.height || '0px'};
+  border: none;
+  height: 70px;
+  outline: none;
+  cursor: pointer;
+  ${transition([{ property: 'background' }])}
+  &:hover {
+    background: #3ec;
   }
 `
