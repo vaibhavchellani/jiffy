@@ -5,7 +5,6 @@ import * as S from './styles'
 import { Icon } from 'components/shared'
 
 import * as Images from 'image'
-import { Link } from 'react-router-dom'
 
 export default class Choose extends Component {
   public state = { isOpen: false }

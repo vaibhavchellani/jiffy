@@ -51,8 +51,42 @@ export const FormButton = styled.button`
   height: 70px;
   outline: none;
   cursor: pointer;
-  ${transition([{ property: 'background' }])}
+  ${transition([{ property: 'background' }, { property: 'opacity' }])}
   &:hover {
     background: #3ec;
+  }
+  &:disabled {
+    opacity: 0.5;
+    &:hover {
+      background: #3ec28f;
+    }
+  }
+`
+
+export const Tags = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  & .tag {
+    background: #28c16e;
+    padding: 3px 10px;
+    color: white;
+    display: flex;
+    height: 32px;
+    line-height: 2;
+    font-size: 13px;
+    font-family: 'Roboto', sans-serif;
+    margin: 10px 10px 0 0;
+    border-radius: 7px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border: none;
+    outline: none;
+    cursor: pointer;
+    font-weight: bold;
+    & span {
+      color: #1b8a4e;
+    }
+    & svg {
+      margin: 6px 0 0 6px;
+    }
   }
 `

@@ -172,6 +172,15 @@ const Icon: React.FunctionComponent<IconProps> = props => {
           />
         </svg>
       )
+    case 'cross':
+      return (
+        <svg width={size} height={size} fill="none" viewBox="0 0 12 12">
+          <path
+            fill="#1B8A4E"
+            d="M11.594 2.364L7.958 6l3.636 3.636a1.385 1.385 0 0 1-1.957 1.959L6 7.958l-3.637 3.637a1.38 1.38 0 0 1-1.957 0 1.385 1.385 0 0 1 0-1.959L4.042 6 .405 2.364A1.385 1.385 0 0 1 2.363.406L6 4.042 9.636.406a1.385 1.385 0 0 1 1.958 1.958z"
+          />
+        </svg>
+      )
     default:
       return <div />
   }
