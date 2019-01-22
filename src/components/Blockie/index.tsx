@@ -2,11 +2,12 @@ import Blockies from 'react-blockies';
  
 export const Blockie = () => (
   <Blockies
-    seed="Jegremy" 
-    size={10} 
-    scale={3} 
-    color="#808080	" 
-    bgColor="#808080" 
-    spotColor="#FFFFFF" 
-    className="identicon" />
+    seed="Jeremy" /* the only required prop; determines how the image is generated */
+    size={12} /* number of squares wide/tall the image will be; default = 15 */
+    scale={4} /* width/height of each square in pixels; default = 4 */
+    color="" /* normal color; random by default */
+    bgColor="" /* background color; random by default */
+    spotColor="" /* color of the more notable features; random by default */
+    className="identicon" /* optional class name for the canvas element; "identicon" by default */
+  />
 )
