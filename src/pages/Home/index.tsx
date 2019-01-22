@@ -57,7 +57,7 @@ export default class Home extends Component {
             initialPose="exit"
             pose="enter"
           >
-            Recent Public dApps
+            Recent Public ÐApps
           </Text>
           <DAppList data={dAppListData} small height={'500px'} />
           <Toggle>
@@ -111,7 +111,9 @@ export default class Home extends Component {
                           margin: '14px 0',
                         }}
                       >
-                        <Text size={1.5}>Connect to Metamask</Text>
+                        <Text size={1.5} initialPose="enter" pose="enter">
+                          Connect to Metamask
+                        </Text>
                       </Button>
                     </div>
                   </LoginModalContainer>
