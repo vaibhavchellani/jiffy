@@ -3,7 +3,7 @@ import { Container, Text, Button, LoginModalContainer } from 'elements'
 import { Toggle, Modal } from 'sharedComponent'
 
 import * as S from './styles'
-import { Info, DAppList } from 'components'
+import { Info, DAppList, Blockie } from 'components'
 import * as Images from 'image'
 import { spanStyleCss } from 'styles'
 
@@ -46,6 +46,7 @@ export default class Home extends Component {
               />
             ))}
           </S.InfoContainer>
+          <Blockie data={"Address",13}/>
         </Container>
         <Container flexFlow="column">
           <Text
