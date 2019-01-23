@@ -25,6 +25,7 @@ export default class ContractDetails extends Component {
             .required('Name is required.'),
           address: Yup.string().required('Address is required.'),
           network: Yup.string().required('Network is required.'),
+          networkURL: Yup.string(),
           tags: Yup.array(),
         })}
         onSubmit={(values, { setSubmitting }) => {
