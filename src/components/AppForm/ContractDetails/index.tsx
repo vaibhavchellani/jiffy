@@ -75,9 +75,11 @@ export default class ContractDetails extends Component {
                     style={{ display: 'block' }}
                   >
                     <Form.Option value="" label="Select a network" />
-                    <Form.Option value="ropsten" label="ropsten" />
-                    <Form.Option value="rinkeby" label="rinkeby" />
-                    <Form.Option value="mainnet" label="mainnet" />
+                    <Form.Option value="mainnet" label="Ethereum Mainnet" />
+                    <Form.Option value="ropsten" label="Ropsten Testnet" />
+                    <Form.Option value="rinkeby" label="Rinkeby Testner" />
+                    <Form.Option value="kovan" label="Kovan Testnet" />
+                    <Form.Option value="custom" label="Custom Node" />
                   </Form.Select>
                 </Form.Inputs>
                 <Form.Inputs>
