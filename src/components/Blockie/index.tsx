@@ -1,4 +1,5 @@
 import Blockies from 'react-blockies';
+
 type BlockieProps = {
   address: string 
 }
