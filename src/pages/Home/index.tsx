@@ -48,7 +48,6 @@ export default class Home extends Component {
             ))}
 
           </S.InfoContainer>
-          <Blockie/> 
         </Container>
 
         <Container flexFlow="column">
