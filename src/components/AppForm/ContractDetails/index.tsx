@@ -27,7 +27,7 @@ export default class ContractDetails extends Component {
           tags: Yup.array(),
         })}
         onSubmit={(values, { setSubmitting }) => {
-          console.log(values)
+          //
         }}
       >
         {({
@@ -78,6 +78,7 @@ export default class ContractDetails extends Component {
                     <Form.Option value="ropsten" label="ropsten" />
                     <Form.Option value="rinkeby" label="rinkeby" />
                     <Form.Option value="mainnet" label="mainnet" />
+                    <Form.Option value="custom" label="custom" />
                   </Form.Select>
                 </Form.Inputs>
                 <Form.Inputs>
@@ -102,9 +103,13 @@ export default class ContractDetails extends Component {
                             <div />
                           )}
                           <Form.TagInput
-                            onKeyPress={e => {
+                            onKeyPress={(
+                              e: React.KeyboardEvent<HTMLInputElement>,
+                            ): void => {
                               if (e.key === 'Enter') {
+                                // @ts-ignore:disable-next-line
                                 arrayHelpers.push(e.target.value)
+                                // @ts-ignore:disable-next-line
                                 e.target.value = ''
                               }
                             }}
@@ -114,6 +119,12 @@ export default class ContractDetails extends Component {
                     )}
                   />
                 </Form.Inputs>
+                <br />
+                <div style={{ textAlign: 'left' }}>
+                  <Form.Label>
+                    Fetched ABI Interface <Icon name="tick" size={15} />
+                  </Form.Label>
+                </div>
               </Form.Content>
               <Form.Bottom>
                 <FormButton
