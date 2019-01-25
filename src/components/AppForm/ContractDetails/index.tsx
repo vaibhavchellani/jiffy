@@ -6,11 +6,24 @@ import { Formik, FieldArray } from 'formik'
 import { Form, Text, FormButton, Tags } from 'elements'
 import { Icon } from 'sharedComponent'
 
+type formValue = {
+  name: string
+  address: string
+  network:
+    | 'Select Network'
+    | 'ropsten'
+    | 'rinkeby'
+    | 'mainnet'
+    | 'custom'
+    | `kovan`
+  networkURL: string
+  tags: string[]
+}
 export default class ContractDetails extends Component {
-  public init = {
+  public init: formValue = {
     name: '',
     address: '',
-    network: '',
+    network: 'Select Network',
     networkURL: '',
     tags: [],
   }
@@ -25,10 +38,11 @@ export default class ContractDetails extends Component {
             .required('Name is required.'),
           address: Yup.string().required('Address is required.'),
           network: Yup.string().required('Network is required.'),
+          networkURL: Yup.string(),
           tags: Yup.array(),
         })}
         onSubmit={(values, { setSubmitting }) => {
-          console.log(values)
+          //
         }}
       >
         {({
@@ -119,9 +133,13 @@ export default class ContractDetails extends Component {
                             <div />
                           )}
                           <Form.TagInput
-                            onKeyPress={e => {
+                            onKeyPress={(
+                              e: React.KeyboardEvent<HTMLInputElement>,
+                            ): void => {
                               if (e.key === 'Enter') {
+                                // @ts-ignore:disable-next-line
                                 arrayHelpers.push(e.target.value)
+                                // @ts-ignore:disable-next-line
                                 e.target.value = ''
                               }
                             }}
@@ -131,6 +149,12 @@ export default class ContractDetails extends Component {
                     )}
                   />
                 </Form.Inputs>
+                <br />
+                <div style={{ textAlign: 'left' }}>
+                  <Form.Label>
+                    Fetched ABI Interface <Icon name="tick" size={15} />
+                  </Form.Label>
+                </div>
               </Form.Content>
               <Form.Bottom>
                 <FormButton

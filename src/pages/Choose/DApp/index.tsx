@@ -4,12 +4,13 @@ import * as S from './styles'
 import * as P from '../styles'
 import * as Images from 'image'
 
-import { ContractDetails } from 'components'
+import { ContractDetails, Labels } from 'components'
 export default class DApp extends Component {
   public render() {
     return (
       <S.DAppContainer>
         <ContractDetails />
+        <Labels />
         <P.Solidity
           src={Images.SolidityLogo}
           alt="solidity"
