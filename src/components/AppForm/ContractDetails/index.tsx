@@ -6,11 +6,17 @@ import { Formik, FieldArray } from 'formik'
 import { Form, Text, FormButton, Tags } from 'elements'
 import { Icon } from 'sharedComponent'
 
+type formValue = {
+  name: string
+  address: string
+  network: 'Select Network' | 'ropsten' | 'rinkeby' | 'mainnet' | 'custom'
+  tags: string[]
+}
 export default class ContractDetails extends Component {
-  public init = {
+  public init: formValue = {
     name: '',
     address: '',
-    network: '',
+    network: 'Select Network',
     tags: [],
   }
 
