@@ -15,7 +15,7 @@ type formValue = {
     | 'rinkeby'
     | 'mainnet'
     | 'custom'
-    | `kovan`
+    | 'kovan'
   networkURL: string
   tags: string[]
 }
