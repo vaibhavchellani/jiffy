@@ -7,10 +7,11 @@ export const Form = {
     justify-content: space-between;
     background: ${props => (props.theme.name === 'dark' ? '#22292F' : '')};
     border-radius: 10px;
-    padding: 20px 20px 60px 20px;
+    padding: 30px 20px 60px 20px;
     height: 100%;
+    font-size: 16px;
     @media screen and (max-width: 320px) {
-      padding: 0;
+      padding: 20px;
     }
   `,
   Content: styled.div`
@@ -20,6 +21,10 @@ export const Form = {
     text-align: center;
     margin: 0 auto;
     position: relative;
+    @media screen and (max-width: 619px) {
+      min-width: 20px;
+      width: 100%;
+    }
   `,
   Inputs: styled.div``,
   Input: styled.input`

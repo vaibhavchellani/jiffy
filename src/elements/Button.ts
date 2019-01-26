@@ -39,23 +39,38 @@ type FormButtonProps = {
   height?: string
   shadow?: string
   borderRadius?: number
+  outline?: boolean
   backgroundColor?: string
 }
 
 export const FormButton = styled.button`
-  background: #3ec28f;
+  background: ${(props: FormButtonProps) =>
+    props.outline ? 'transparent' : '#3ec28f'};
   border-radius: 9px;
   width: ${(props: FormButtonProps) => props.width || '100%'};
   height: ${(props: FormButtonProps) => props.height || '0px'};
-  border: none;
+  border: ${(props: FormButtonProps) =>
+    props.outline ? '2px solid #3ec28f' : 'none'};
   height: 70px;
   outline: none;
+  margin: 7px;
   cursor: pointer;
-  ${transition([{ property: 'background' }, { property: 'opacity' }])}
+  ${transition([
+    { property: 'background' },
+    { property: 'opacity' },
+    { property: 'transform' },
+  ])}
   &:hover {
-    background: #3ec;
+    background: ${(props: FormButtonProps) =>
+      props.outline ? 'transparent' : '#3ec'};
+      border ${(props: FormButtonProps) =>
+        props.outline ? '2px solid #3ec' : 'transparent'};   
+  }
+  &:active{
+    transform: scale(0.99);
   }
   &:disabled {
+    cursor: disabled;
     opacity: 0.5;
     &:hover {
       background: #3ec28f;

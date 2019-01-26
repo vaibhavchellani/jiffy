@@ -1,9 +1,8 @@
 import React, { Component } from 'react'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { isEmpty } from 'lodash'
+// import { isEmpty } from 'lodash'
 import * as Yup from 'yup'
 import { Formik, FieldArray } from 'formik'
-import { Form, Text, FormButton, Tags } from 'elements'
+import { Form, Text, Tags } from 'elements'
 import { Icon } from 'sharedComponent'
 
 type formValue = {
@@ -133,7 +132,7 @@ export default class ContractDetails extends Component {
                 </div>
               </Form.Content>
               <Form.Bottom>
-                <FormButton
+                {/* <FormButton
                   height={'30px'}
                   width={'320px'}
                   type="submit"
@@ -142,7 +141,7 @@ export default class ContractDetails extends Component {
                   <Text size={1.75}>
                     Continue <FontAwesomeIcon icon="angle-right" size="lg" />
                   </Text>
-                </FormButton>
+                </FormButton> */}
               </Form.Bottom>
             </Form.Box>
           )

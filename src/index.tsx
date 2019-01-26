@@ -7,6 +7,7 @@ import {
   faAngleDoubleRight,
   faSearch,
   faAngleRight,
+  faAngleLeft,
 } from '@fortawesome/free-solid-svg-icons'
 
 import App from 'components/App'
@@ -17,7 +18,7 @@ declare let module: any
 
 addLocaleData(en)
 
-library.add(faAngleDoubleRight, faSearch, faAngleRight)
+library.add(faAngleDoubleRight, faSearch, faAngleRight, faAngleLeft)
 
 render(<App />, document.getElementById('root'))
 
