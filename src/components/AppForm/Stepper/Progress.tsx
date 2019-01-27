@@ -46,6 +46,7 @@ export default class Progress extends Component<ProgressProps> {
               height={'30px'}
               width={'320px'}
               onClick={() => handleClick('next')}
+              type="button"
             >
               <Text size={1.75}>
                 {stage === totalStage ? (

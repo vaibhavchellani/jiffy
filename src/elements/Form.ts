@@ -26,7 +26,11 @@ export const Form = {
       width: 100%;
     }
   `,
-  Inputs: styled.div``,
+  Inputs: styled.div`
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  `,
   Input: styled.input`
     width: 100%;
     border: 1px solid #4d565f;
@@ -37,6 +41,13 @@ export const Form = {
     font-weight: bold;
     border-radius: 7px;
     color: white;
+    &[type='radio'][id^='cb'] {
+      display: none;
+    }
+    :checked + label {
+      border: 4px solid #28c16e;
+      background: #212121;
+    }
   `,
   TagInput: styled.input`
     min-width: 1px;

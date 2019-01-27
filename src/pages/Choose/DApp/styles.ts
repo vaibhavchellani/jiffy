@@ -12,3 +12,10 @@ export const DAppContainer = styled.div`
   flex-direction: column;
   justify-content: space-between;
 `
+
+export const Back = styled.div`
+  margin: 20px;
+  & .link {
+    text-decoration: none;
+  }
+`

@@ -35,11 +35,13 @@ export default class DApp extends Component {
     return (
       <div style={{ display: 'flex', flexDirection: 'column', width: '100%' }}>
         <div>
-          <Link to="/choose">
-            <Text size={1.5} bold style={{ margin: '-27px 0 16px' }}>
-              <FontAwesomeIcon icon="arrow-left" size="sm" /> DApp
-            </Text>
-          </Link>
+          <S.Back>
+            <Link to="/choose" className="link">
+              <Text size={1.5} bold style={{ margin: '-27px 0 16px' }}>
+                <FontAwesomeIcon icon="arrow-left" size="sm" /> DApp
+              </Text>
+            </Link>
+          </S.Back>
         </div>
         <S.DAppContainer>
           <P.Solidity
@@ -108,9 +110,6 @@ export default class DApp extends Component {
               )
             }}
           </Formik>
-
-          {/* <ContractDetails /> */}
-          {/* <Labels /> */}
         </S.DAppContainer>
       </div>
     )

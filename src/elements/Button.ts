@@ -76,6 +76,9 @@ export const FormButton = styled.button`
       background: #3ec28f;
     }
   }
+  @media screen and (max-width: 425px) {
+    width: 100%;
+  }
 `
 
 export const Tags = styled.div`
