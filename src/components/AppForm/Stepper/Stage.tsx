@@ -5,12 +5,14 @@ class Stage extends Component<{
     values: any
     handleChange: (e: string | ChangeEvent<any>) => void
     handleBlur: (e: any) => void
+    setFieldValue: (e: any, _: any) => void
   }>
   stage: number
   num: number
   values: any
   handleChange: (e: string | ChangeEvent<any>) => void
   handleBlur: (e: any) => void
+  setFieldValue: (e: any, _: any) => void
 }> {
   public render() {
     const {
@@ -20,6 +22,7 @@ class Stage extends Component<{
       values,
       handleBlur,
       handleChange,
+      setFieldValue,
     } = this.props
     if (stage === num) {
       return (
@@ -27,6 +30,7 @@ class Stage extends Component<{
           values={values}
           handleBlur={handleBlur}
           handleChange={handleChange}
+          setFieldValue={setFieldValue}
         />
       )
     }

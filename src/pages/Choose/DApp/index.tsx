@@ -18,7 +18,7 @@ type formValue = {
   network: 'Select Network' | 'ropsten' | 'rinkeby' | 'mainnet' | 'custom'
   tags: string[]
   mode: 'public' | 'private'
-  pic: File | null
+  icon: File | null
 }
 
 const formCollection = [ContractDetails, Privacy]
@@ -29,7 +29,7 @@ export default class DApp extends Component {
     network: 'Select Network',
     tags: [],
     mode: 'public',
-    pic: null,
+    icon: null,
   }
   public render() {
     return (
@@ -73,6 +73,7 @@ export default class DApp extends Component {
               handleSubmit,
               isSubmitting,
               dirty,
+              setFieldValue,
               /* and other goodies */
             }) => {
               return (
@@ -94,6 +95,7 @@ export default class DApp extends Component {
                             handleChange={handleChange}
                             handleBlur={handleBlur}
                             values={values}
+                            setFieldValue={setFieldValue}
                           />
                         ))}
                       </Stepper.Content>

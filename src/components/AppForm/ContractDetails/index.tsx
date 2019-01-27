@@ -8,6 +8,7 @@ type ContractDetailsProps = {
   values: any
   handleChange: (e: string | ChangeEvent<any>) => void
   handleBlur: (e: any) => void
+  setFieldValue: (e: any, _: any) => void
 }
 
 export default class ContractDetails extends Component<ContractDetailsProps> {
@@ -98,18 +99,6 @@ export default class ContractDetails extends Component<ContractDetailsProps> {
             </Form.Label>
           </div>
         </Form.Content>
-        <Form.Bottom>
-          {/* <FormButton
-                  height={'30px'}
-                  width={'320px'}
-                  type="submit"
-                  disabled={!isEmpty(errors) || !dirty}
-                >
-                  <Text size={1.75}>
-                    Continue <FontAwesomeIcon icon="angle-right" size="lg" />
-                  </Text>
-                </FormButton> */}
-        </Form.Bottom>
       </Form.Box>
     )
   }
