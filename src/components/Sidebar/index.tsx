@@ -23,10 +23,10 @@ import InputBase from '@material-ui/core/InputBase';
 const drawerWidth = 240;
 
 const Icons: ReactNode[] = [
-  <Icon key="circle" name="circle" size={30} color={'#28C16E'} />,
-  <Icon key="block" name="block" size={30} />,
-  <Icon key="hourglass" name="hourglass" size={30} />,
-  <Icon key="timer" name="timer" size={30} />,
+  <Icon key="home" name="home" size={30} color={'#28C16E'} />,
+  <Icon key="discover" name="discover" size={30} />,
+  <Icon key="create" name="create" size={30} />,
+  <Icon key="manage" name="manage" size={30} />,
 ]
 
 
