@@ -12,13 +12,16 @@ type StepperState = {
 type StepperProps = {
   intialstage: number
   totalStage: number
-  onFinish: () => void
   children: (
     stage: number,
     totalStage: number,
     handleClick: (type: string) => void,
-    onFinish: () => void,
+    values: any,
+    errors: any,
   ) => React.ReactNode
+  values: any
+  errors: any
+  handleSubmit: () => void
 }
 
 class Stepper extends Component<StepperProps, StepperState> {
@@ -45,15 +48,15 @@ class Stepper extends Component<StepperProps, StepperState> {
       if (type === 'previous' && this.state.stage > 0) {
         return { ...prevState, stage: prevState.stage - 1 }
       }
-      this.props.onFinish()
+      this.props.handleSubmit()
       return prevState
     })
 
   public render() {
     const { stage, totalStage } = this.state
-    const { children, onFinish } = this.props
+    const { children, values, errors } = this.props
 
-    return children(stage, totalStage, this.handleClick, onFinish)
+    return children(stage, totalStage, this.handleClick, values, errors)
   }
 }
 
