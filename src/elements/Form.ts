@@ -44,6 +44,13 @@ export const Form = {
     &[type='radio'][id^='cb'] {
       display: none;
     }
+    &[type='file'][id^='cb'] {
+      left: 0;
+      opacity: 0;
+      top: 0;
+      bottom: 0;
+      width: 100%;
+    }
     :checked + label {
       border: 4px solid #28c16e;
       background: #212121;

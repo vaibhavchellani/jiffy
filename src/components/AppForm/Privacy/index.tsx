@@ -1,5 +1,7 @@
 import React, { Component, ChangeEvent } from 'react'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { Form, Text } from 'elements'
+import { GlobeImg, SpyImg } from 'image'
 
 import * as S from './styles'
 // import { Icon } from 'sharedComponent'
@@ -33,6 +35,7 @@ export default class Privacy extends Component<PrivacyProps> {
               <Text size={1.5} themeColor className="text">
                 Public
               </Text>
+              <S.Img src={GlobeImg} style={{ left: '-12px' }} />
             </S.CheckboxLabel>
 
             <Form.Input
@@ -47,6 +50,7 @@ export default class Privacy extends Component<PrivacyProps> {
               <Text size={1.5} themeColor className="text">
                 Private
               </Text>
+              <S.Img src={SpyImg} style={{ left: '61px' }} />
             </S.CheckboxLabel>
           </Form.Inputs>
           <Form.Label style={{ margin: '10px 0 -14px 0px' }}>
@@ -54,17 +58,30 @@ export default class Privacy extends Component<PrivacyProps> {
           </Form.Label>
           <br />
           <Form.Inputs>
-            <Form.Input
-              name="icon"
-              onChange={handleChange}
-              onBlur={handleBlur}
-              value={'icon0'}
-              type="radio"
-              id="cb-icon0"
-            />
-            <S.CheckboxLabel htmlFor="cb-icon0" width={150} height={150}>
-              Add Icon
-            </S.CheckboxLabel>
+            <S.Upload>
+              <S.UploadLabel
+                style={{
+                  display: 'flex',
+                  flexDirection: 'column',
+                  alignItems: 'center',
+                }}
+                htmlFor="cb-icon0"
+              >
+                <Form.Input
+                  name="icon"
+                  onChange={handleChange}
+                  onBlur={handleBlur}
+                  type="file"
+                  id="cb-icon0"
+                />
+                <Form.Label
+                  style={{ display: 'flex', flexDirection: 'column' }}
+                >
+                  <FontAwesomeIcon icon="plus" size="lg" />
+                  <span>Upload</span>
+                </Form.Label>
+              </S.UploadLabel>
+            </S.Upload>
 
             <Form.Input
               name="icon"
