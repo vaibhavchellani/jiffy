@@ -21,7 +21,6 @@ export const CheckboxLabel = styled.label`
   position: relative;
   cursor: pointer;
   height: ${(props: CheckBoxLabelProps) => props.height || 274}px;
-  margin: 10px auto;
   background: #22292f;
   border: 4px solid #4d565f;
   box-sizing: border-box;
@@ -60,7 +59,6 @@ export const Upload = styled.div`
   position: relative;
   cursor: pointer;
   height: 150px;
-  margin: 10px auto;
   background: #22292f;
   border: 4px dashed #4d565f;
   border-radius: 15px;
@@ -80,5 +78,26 @@ export const UploadLabel = styled.label`
     display: flex;
     align-items: center;
     justify-content: center;
+  }
+`
+
+type UploadedImgProp = {
+  icon: boolean
+}
+
+export const UploadedImg = styled.label`
+  width: 153px;
+  display: ${(props: UploadedImgProp) => (props.icon ? 'block' : 'none')};
+  overflow: hidden;
+  cursor: pointer;
+  z-index: 2;
+  height: 150px;
+  position: relative;
+  background: #22292f;
+  border: 4px solid #4d565f;
+  box-sizing: border-box;
+  border-radius: 15px;
+  & p.text {
+    margin-top: 32px;
   }
 `

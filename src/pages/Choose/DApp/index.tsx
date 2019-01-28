@@ -19,6 +19,7 @@ type formValue = {
   tags: string[]
   mode: 'public' | 'private'
   icon: File | null
+  customIcon: File | null
 }
 
 const formCollection = [ContractDetails, Privacy]
@@ -30,6 +31,7 @@ export default class DApp extends Component {
     tags: [],
     mode: 'public',
     icon: null,
+    customIcon: null,
   }
   public render() {
     return (

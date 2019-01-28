@@ -1,55 +1,88 @@
 import React, { Component } from 'react'
+import { Icon } from 'sharedComponent'
 
 type thumbProps = {
   file: File
-  fileLoad: (e: boolean) => void
+  remove: () => void
 }
 
-export default class Thumb extends Component<thumbProps> {
+class Thumb extends Component<thumbProps> {
   public state = {
     loading: false,
     thumb: undefined,
   }
 
-  public componentWillReceiveProps(nextProps: { file: File | null }) {
-    if (!nextProps.file) {
+  public async componentDidMount() {
+    if (!this.props.file) {
       return
     }
 
-    this.setState({ loading: true }, () => {
+    await this.setState({ loading: true }, async () => {
       const reader = new FileReader()
 
-      reader.onloadend = () => {
-        this.setState({ loading: false, thumb: reader.result })
+      reader.onloadend = async () => {
+        await this.setState({ loading: false, thumb: reader.result })
       }
-      if (nextProps.file) {
-        this.props.fileLoad(true)
-        reader.readAsDataURL(nextProps.file)
-        console.log('hiii')
+      if (this.props.file) {
+        await reader.readAsDataURL(this.props.file)
       }
     })
   }
 
+  public async componentWillReceiveProps(nextProps: { file: File | null }) {
+    if (!nextProps.file) {
+      return
+    }
+
+    await this.setState({ loading: true }, async () => {
+      const reader = new FileReader()
+
+      reader.onloadend = async () => {
+        await this.setState({ loading: false, thumb: reader.result })
+      }
+      if (nextProps.file) {
+        await reader.readAsDataURL(nextProps.file)
+      }
+    })
+  }
+
+  public removeImage = () => {
+    this.setState({
+      loading: false,
+      thumb: undefined,
+    })
+    this.props.remove()
+  }
+
   public render() {
     const { file } = this.props
-    const { loading, thumb } = this.state
-
+    const { thumb } = this.state
     if (!file) {
       return null
     }
 
-    if (loading) {
-      return <p>loading...</p>
-    }
-
     return (
-      <img
-        src={thumb}
-        alt={file.name}
-        className="img-thumbnail mt-2"
-        height={150}
-        width={150}
-      />
+      <>
+        <div
+          style={{
+            position: 'absolute',
+            right: '9px',
+            top: '9px',
+          }}
+          onClick={() => this.removeImage()}
+        >
+          <Icon name="close" size={20} color="#e04f5f" />
+        </div>
+        <img
+          src={thumb}
+          alt={file.name}
+          className="img-thumbnail mt-2"
+          height={150}
+          width={150}
+        />
+      </>
     )
   }
 }
+
+export default React.memo(Thumb)
