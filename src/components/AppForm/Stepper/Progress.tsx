@@ -61,11 +61,7 @@ export default class Progress extends Component<ProgressProps> {
           </div>
         )}
         <Bar stage={stage} totalStage={totalStage + 1}>
-          {stage > 1 ? (
-            <span>{Math.floor((stage / (totalStage + 1)) * 100)}%</span>
-          ) : (
-            ''
-          )}
+          <span>{Math.floor((stage / (totalStage + 1)) * 100)}%</span>
         </Bar>
       </Bottom>
     )
