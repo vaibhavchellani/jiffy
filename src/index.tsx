@@ -9,6 +9,7 @@ import {
   faAngleRight,
   faAngleLeft,
   faArrowLeft,
+  faPlus,
 } from '@fortawesome/free-solid-svg-icons'
 
 import App from 'components/App'
@@ -25,6 +26,7 @@ library.add(
   faAngleRight,
   faAngleLeft,
   faArrowLeft,
+  faPlus,
 )
 
 render(<App />, document.getElementById('root'))

@@ -8,6 +8,8 @@ import WorldOfEther from './worldOfEther.webp'
 import Rocket from './rocket.webp'
 import SolidityLogo from './solidity.webp'
 import LabeLImg from './label.webp'
+import GlobeImg from './globe.webp'
+import SpyImg from './spy.webp'
 
 export {
   DeployImg,
@@ -20,4 +22,6 @@ export {
   CryptoKitties,
   SolidityLogo,
   LabeLImg,
+  GlobeImg,
+  SpyImg,
 }
