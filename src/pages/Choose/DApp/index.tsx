@@ -15,11 +15,18 @@ import { Text } from 'elements'
 type formValue = {
   name: string
   address: string
-  network: 'Select Network' | 'ropsten' | 'rinkeby' | 'mainnet' | 'custom'
+  network:
+    | 'Select Network'
+    | 'ropsten'
+    | 'rinkeby'
+    | 'mainnet'
+    | 'custom'
+    | 'kovan'
   tags: string[]
   mode: 'public' | 'private'
   icon: File | null
   customIcon: File | null
+  networkURL: string | ''
 }
 
 const formCollection = [ContractDetails, Privacy]
@@ -32,6 +39,7 @@ export default class DApp extends Component {
     mode: 'public',
     icon: null,
     customIcon: null,
+    networkURL: '',
   }
   public render() {
     return (
@@ -61,6 +69,7 @@ export default class DApp extends Component {
               address: Yup.string().required('Address is required.'),
               network: Yup.string().required('Network is required.'),
               tags: Yup.array(),
+              networkURL: Yup.string(),
             })}
             onSubmit={(values, { setSubmitting }) => {
               console.log(values)

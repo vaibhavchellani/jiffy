@@ -55,6 +55,19 @@ export default class ContractDetails extends Component<ContractDetailsProps> {
               <Form.Option value="custom" label="Custom Node" />
             </Form.Select>
           </Form.Inputs>
+          {values.network == 'custom' ? (
+            <Form.Inputs>
+              <Form.Label>Custom Network URL </Form.Label>
+              <Form.Input
+                name="customURL"
+                onChange={handleChange}
+                onBlur={handleBlur}
+                value={values.networkURL}
+              />
+            </Form.Inputs>
+          ) : (
+            ''
+          )}
           <Form.Inputs>
             <Form.Label>Tags</Form.Label>
             <FieldArray
