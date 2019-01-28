@@ -9,9 +9,6 @@ import List from '@material-ui/core/List';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import Divider from '@material-ui/core/Divider';
 import IconButton from '@material-ui/core/IconButton';
-import MenuIcon from '@material-ui/icons/Menu';
-import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
-import ChevronRightIcon from '@material-ui/icons/ChevronRight';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
@@ -19,6 +16,8 @@ import SearchIcon from '@material-ui/icons/Search';
 import { fade } from '@material-ui/core/styles/colorManipulator';
 import Icon from '../shared/Icon'
 import InputBase from '@material-ui/core/InputBase';
+import { Typography } from '@material-ui/core';
+
 
 const drawerWidth = 240;
 
@@ -27,6 +26,7 @@ const Icons: ReactNode[] = [
   <Icon key="discover" name="discover" size={30} />,
   <Icon key="create" name="create" size={30} />,
   <Icon key="manage" name="manage" size={30} />,
+  <Icon key="sideMenu" name="sideMenu" size={30} />, 
 ]
 
 
@@ -44,8 +44,10 @@ const styles = theme => ({
     transition: theme.transitions.create(['width', 'margin'], {
       easing: theme.transitions.easing.sharp,
       duration: theme.transitions.duration.leavingScreen,
-   
-    }),
+      }),
+      backgroundColor: '#212121',
+
+
   },
   appBarShift: {
     marginLeft: drawerWidth,
@@ -57,10 +59,7 @@ const styles = theme => ({
     background: "#212121",
 
   },
-  menuButton: {
-    marginLeft: 12,
-    marginRight: 36,
-  },
+ 
   hide: {
     display: 'none',
     
@@ -70,7 +69,6 @@ const styles = theme => ({
     flexShrink: 0,
     whiteSpace: 'nowrap',
     
-
   },
   drawerOpen: {
     width: drawerWidth,
@@ -78,7 +76,6 @@ const styles = theme => ({
       easing: theme.transitions.easing.sharp,
       duration: theme.transitions.duration.enteringScreen,
     }),
-    backgroundColor: "#212121",
     background: "#212121",
   },
   drawerClose: {
@@ -87,8 +84,7 @@ const styles = theme => ({
       duration: theme.transitions.duration.leavingScreen,
       
     }),
-
-    backgroundColor: "#212121",
+    
     background: "#212121",
     overflowX: 'hidden',
     width: theme.spacing.unit * 7 + 1,
@@ -101,8 +97,7 @@ const styles = theme => ({
     alignItems: 'center',
     justifyContent: 'flex-start',
     padding: '0 8px',
-    ...theme.mixins.toolbar,
-    background: "#030303",
+    
   },
   search: {
     position: 'relative',
@@ -146,11 +141,6 @@ const styles = theme => ({
     },
   },
 
-  content: {
-    flexGrow: 1,
-    padding: theme.spacing.unit * 3,
-    
-  },
 });
 
 class MiniDrawer extends React.Component {
@@ -187,7 +177,7 @@ class MiniDrawer extends React.Component {
                 [classes.hide]: this.state.open,
               })}
             >
-              <MenuIcon />
+            {Icons[4]}
             </IconButton>
 
           <div className={classes.grow} />
@@ -221,7 +211,8 @@ class MiniDrawer extends React.Component {
         >
           <div className={classes.toolbar}>
             <IconButton onClick={this.handleDrawerClose}>
-              {theme.direction === 'rtl' ? <ChevronRightIcon /> : <ChevronLeftIcon />}
+              {theme.direction === 'rtl' }
+              {Icons[4]}
             </IconButton>
           </div>
           <Divider />
@@ -230,7 +221,7 @@ class MiniDrawer extends React.Component {
               <ListItem button key={text}>
                 <ListItemIcon>{Icons[index] 
             }</ListItemIcon>
-                <ListItemText primary={text} />
+                <ListItemText primary={<Typography align ="right" variant ="title" style={{color:'#FFFFFF' }}>{text}</Typography>} />
               </ListItem>
             ))}
           </List>
@@ -247,6 +238,7 @@ class MiniDrawer extends React.Component {
 MiniDrawer.propTypes = {
   classes: PropTypes.object.isRequired,
   theme: PropTypes.object.isRequired,
+  
 };
 
 export default withStyles(styles, { withTheme: true })(MiniDrawer);
