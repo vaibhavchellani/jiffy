@@ -7,21 +7,30 @@ export const Form = {
     justify-content: space-between;
     background: ${props => (props.theme.name === 'dark' ? '#22292F' : '')};
     border-radius: 10px;
-    padding: 20px 20px 60px 20px;
+    padding: 30px 20px 0px 20px;
     height: 100%;
+    font-size: 16px;
     @media screen and (max-width: 320px) {
-      padding: 0;
+      padding: 20px;
     }
   `,
   Content: styled.div`
     min-width: 320px;
-    max-width: 520px;
-    width: 520px;
+    max-width: 1020px;
+    width: 620px;
     text-align: center;
     margin: 0 auto;
     position: relative;
+    @media screen and (max-width: 619px) {
+      min-width: 20px;
+      width: 100%;
+    }
   `,
-  Inputs: styled.div``,
+  Inputs: styled.div`
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  `,
   Input: styled.input`
     width: 100%;
     border: 1px solid #4d565f;
@@ -32,6 +41,13 @@ export const Form = {
     font-weight: bold;
     border-radius: 7px;
     color: white;
+    &[type='radio'][id^='cb'] {
+      display: none;
+    }
+    :checked + label {
+      border: 4px solid #28c16e;
+      background: #212121;
+    }
   `,
   TagInput: styled.input`
     min-width: 1px;
