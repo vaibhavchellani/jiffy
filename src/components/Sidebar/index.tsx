@@ -59,46 +59,49 @@ const styles = theme => ({
     background: "#212121",
 
   },
- 
+  menuButton: {
+    marginLeft: 12,
+    marginRight: 20,
+  },
   hide: {
     display: 'none',
     
   },
   drawer: {
     width: drawerWidth,
-    flexShrink: 0,
-    whiteSpace: 'nowrap',
-    
+    flexShrink: 0,    
   },
-  drawerOpen: {
+  drawerPaper: {
     width: drawerWidth,
-    transition: theme.transitions.create('width', {
-      easing: theme.transitions.easing.sharp,
-      duration: theme.transitions.duration.enteringScreen,
-    }),
     background: "#212121",
+
   },
-  drawerClose: {
-    transition: theme.transitions.create('width', {
-      easing: theme.transitions.easing.sharp,
-      duration: theme.transitions.duration.leavingScreen,
-      
-    }),
-    
-    background: "#212121",
-    overflowX: 'hidden',
-    width: theme.spacing.unit * 7 + 1,
-    [theme.breakpoints.up('sm')]: {
-      width: theme.spacing.unit * 9 + 1,
-    },
-  },
-  toolbar: {
+  drawerHeader: {
     display: 'flex',
     alignItems: 'center',
-    justifyContent: 'flex-start',
     padding: '0 8px',
-    
+    ...theme.mixins.toolbar,
+    justifyContent: 'flex-end',
+    background: "#212121",
+
   },
+  content: {
+    flexGrow: 1,
+    padding: theme.spacing.unit * 3,
+    transition: theme.transitions.create('margin', {
+      easing: theme.transitions.easing.sharp,
+      duration: theme.transitions.duration.leavingScreen,
+    }),
+    marginLeft: -drawerWidth,
+  },
+  contentShift: {
+    transition: theme.transitions.create('margin', {
+      easing: theme.transitions.easing.easeOut,
+      duration: theme.transitions.duration.enteringScreen,
+    }),
+    marginLeft: 0,
+  },
+
   search: {
     position: 'relative',
     borderRadius: theme.shape.borderRadius,
@@ -145,7 +148,7 @@ const styles = theme => ({
 
 class MiniDrawer extends React.Component {
   state = {
-    open: true,
+    open: false,
   };
 
   handleDrawerOpen = () => {
@@ -158,6 +161,7 @@ class MiniDrawer extends React.Component {
 
   render() {
     const { classes, theme } = this.props;
+    const { open } = this.state;
 
     return (
       <div className={classes.root}>
@@ -165,17 +169,15 @@ class MiniDrawer extends React.Component {
         <AppBar
           position="fixed"
           className={classNames(classes.appBar, {
-            [classes.appBarShift]: this.state.open,
+            [classes.appBarShift]: open,
           })}
         >
-          <Toolbar disableGutters={!this.state.open}>
+          <Toolbar disableGutters={!open}>
             <IconButton
               color="inherit"
               aria-label="Open drawer"
               onClick={this.handleDrawerOpen}
-              className={classNames(classes.menuButton, {
-                [classes.hide]: this.state.open,
-              })}
+              className={classNames(classes.menuButton, open && classes.hide)}
             >
             {Icons[4]}
             </IconButton>
@@ -196,25 +198,20 @@ class MiniDrawer extends React.Component {
           </Toolbar>
         </AppBar>
         <Drawer
-          variant="permanent"
-          className={classNames(classes.drawer, {
-            [classes.drawerOpen]: this.state.open,
-            [classes.drawerClose]: !this.state.open,
-          })}
-          classes={{
-            paper: classNames({
-              [classes.drawerOpen]: this.state.open,
-              [classes.drawerClose]: !this.state.open,
-            }),
-          }}
-          open={this.state.open}
+           className={classes.drawer}
+           variant="persistent"
+           anchor="left"
+           open={open}
+           classes={{
+             paper: classes.drawerPaper,
+           }}
         >
           <div className={classes.toolbar}>
             <IconButton onClick={this.handleDrawerClose}>
               {theme.direction === 'rtl' }
               {Icons[4]}
             </IconButton>
-          </div>
+                </div>
           <Divider />
           <List>
             {['Home', 'Discover', 'Create', 'Manage'].map((text, index) => (
@@ -226,8 +223,9 @@ class MiniDrawer extends React.Component {
             ))}
           </List>
         </Drawer>
-        <main className={classes.content}>
-          <div className={classes.toolbar} />
+        <main className={classNames(classes.content, {
+            [classes.contentShift]: open,
+          })}>
         
         </main>
       </div>
