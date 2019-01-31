@@ -48,12 +48,26 @@ export default class ContractDetails extends Component<ContractDetailsProps> {
               style={{ display: 'block' }}
             >
               <Form.Option value="" label="Select a network" />
-              <Form.Option value="ropsten" label="ropsten" />
-              <Form.Option value="rinkeby" label="rinkeby" />
-              <Form.Option value="mainnet" label="mainnet" />
-              <Form.Option value="custom" label="custom" />
+              <Form.Option value="mainnet" label="Ethereum Mainnet" />
+              <Form.Option value="ropsten" label="Ropsten Testnet" />
+              <Form.Option value="rinkeby" label="Rinkeby Testner" />
+              <Form.Option value="kovan" label="Kovan Testnet" />
+              <Form.Option value="custom" label="Custom Node" />
             </Form.Select>
           </Form.Inputs>
+          {values.network == 'custom' ? (
+            <Form.Inputs>
+              <Form.Label>Custom Network URL </Form.Label>
+              <Form.Input
+                name="customURL"
+                onChange={handleChange}
+                onBlur={handleBlur}
+                value={values.networkURL}
+              />
+            </Form.Inputs>
+          ) : (
+            ''
+          )}
           <Form.Inputs>
             <Form.Label>Tags</Form.Label>
             <FieldArray
