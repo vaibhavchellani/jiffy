@@ -4,14 +4,9 @@ import { Form, Text } from 'elements'
 import { GlobeImg, SpyImg } from 'image'
 import Thumb from './thumb'
 
-import * as S from './styles'
+import { formProps as PrivacyProps } from '../index'
 
-type PrivacyProps = {
-  values: any
-  handleChange: (e: string | ChangeEvent<any>) => void
-  handleBlur: (e: any) => void
-  setFieldValue: (e: any, _: any) => void
-}
+import * as S from './styles'
 
 const IconImages = [
   'https://github.com/identicons/imshubhamsingh.png',

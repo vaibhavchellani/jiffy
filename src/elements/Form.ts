@@ -1,7 +1,7 @@
 import styled from '@emotion/styled'
 
 type InputProps = {
-  center: boolean
+  center?: boolean
 }
 export const Form = {
   Box: styled.form`
