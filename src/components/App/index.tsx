@@ -5,7 +5,7 @@ import { ThemeProvider } from 'emotion-theming'
 
 import { themes } from 'styles'
 import { MainContainer } from 'elements'
-import { BlockchainDetails } from 'components'
+import { BlockchainDetails, Sidebar } from 'components'
 
 import { bottomBarDetails } from 'data'
 import { WaitingComponent } from 'sharedComponent'
@@ -43,6 +43,7 @@ export default () => (
         </BrowserRouter>
       </MainContainer>
       <BlockchainDetails data={bottomBarDetails} />
+      <Sidebar/>
     </ThemeProvider>
   </IntlProvider>
 )
