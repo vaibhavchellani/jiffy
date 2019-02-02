@@ -28,6 +28,9 @@ export const CheckboxLabel = styled.label`
   & p.text {
     margin-top: 32px;
   }
+  @media screen and (max-width: 620px) {
+    margin: 5px;
+  }
 `
 
 export const Checkbox = styled.label`

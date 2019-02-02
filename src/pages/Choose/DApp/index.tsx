@@ -9,7 +9,7 @@ import * as S from './styles'
 import * as P from '../styles'
 import * as Images from 'image'
 
-import { ContractDetails, Stepper, Privacy } from 'components'
+import { ContractDetails, Stepper, Privacy, Review } from 'components'
 import { Text } from 'elements'
 
 type formValue = {
@@ -22,7 +22,7 @@ type formValue = {
   customIcon: File | null
 }
 
-const formCollection = [ContractDetails, Privacy]
+const formCollection = [ContractDetails, Privacy, Review]
 export default class DApp extends Component {
   public init: formValue = {
     name: '',

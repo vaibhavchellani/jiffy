@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { PureComponent } from 'react'
 import { Icon } from 'sharedComponent'
 
 type thumbProps = {
@@ -6,7 +6,14 @@ type thumbProps = {
   remove: () => void
 }
 
-class Thumb extends Component<thumbProps> {
+class Thumb extends PureComponent<thumbProps> {
+  public static getDerivedStateFromProps(nextProps: thumbProps) {
+    if (!nextProps.file) {
+      return null
+    }
+    return nextProps
+  }
+
   public state = {
     loading: false,
     thumb: undefined,
@@ -29,21 +36,23 @@ class Thumb extends Component<thumbProps> {
     })
   }
 
-  public async componentWillReceiveProps(nextProps: { file: File | null }) {
-    if (!nextProps.file) {
+  public async componentDidUpdate(prevProps: thumbProps) {
+    if (!prevProps.file) {
       return
     }
 
-    await this.setState({ loading: true }, async () => {
-      const reader = new FileReader()
+    if (prevProps.file !== this.props.file) {
+      await this.setState({ loading: true }, async () => {
+        const reader = new FileReader()
 
-      reader.onloadend = async () => {
-        await this.setState({ loading: false, thumb: reader.result })
-      }
-      if (nextProps.file) {
-        await reader.readAsDataURL(nextProps.file)
-      }
-    })
+        reader.onloadend = async () => {
+          await this.setState({ loading: false, thumb: reader.result })
+        }
+        if (this.props.file) {
+          await reader.readAsDataURL(this.props.file)
+        }
+      })
+    }
   }
 
   public removeImage = () => {
@@ -85,4 +94,4 @@ class Thumb extends Component<thumbProps> {
   }
 }
 
-export default React.memo(Thumb)
+export default Thumb

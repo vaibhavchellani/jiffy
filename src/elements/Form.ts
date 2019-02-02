@@ -1,5 +1,8 @@
 import styled from '@emotion/styled'
 
+type InputProps = {
+  center: boolean
+}
 export const Form = {
   Box: styled.form`
     display: flex;
@@ -30,6 +33,12 @@ export const Form = {
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
+    ${(props: InputProps) =>
+      props.center
+        ? `@media screen and (max-width: 620px) {
+      justify-content: space-around;
+    }`
+        : ''}
   `,
   Input: styled.input`
     width: 100%;
