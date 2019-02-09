@@ -4,11 +4,19 @@ import { FieldArray } from 'formik'
 import { Form, Text, Tags } from 'elements'
 import { Icon } from 'sharedComponent'
 
+import Thumb from '../Privacy/thumb'
+
 import { formProps as ReviewProps } from '../index'
 
 import * as S from './styles'
 
-const IconImages = {
+type Images = {
+  icon1: string
+  icon2: string
+  icon3: string
+}
+
+const IconImages: Images = {
   icon1: 'https://github.com/identicons/imshubhamsingh.png',
   icon2: 'https://github.com/identicons/vaibhav.png',
   icon3: 'https://github.com/identicons/jiffy.png',
@@ -26,9 +34,17 @@ const Review = (props: ReviewProps) => {
           <div>
             <S.ReviewTopContainer>
               <div>
-                <S.CheckboxLabel width={150} height={150}>
-                  <img src={IconImages[values.icon]} width={150} />
-                </S.CheckboxLabel>
+                {values.customIcon && values.icon === 'icon0' ? (
+                  <>
+                    <S.CheckboxLabel width={150} height={150}>
+                      <Thumb file={values.customIcon} />
+                    </S.CheckboxLabel>
+                  </>
+                ) : (
+                  <S.CheckboxLabel width={150} height={150}>
+                    <img src={IconImages[values.icon]} width={150} />
+                  </S.CheckboxLabel>
+                )}
               </div>
               <S.ReviewImp>
                 <Form.Inputs>

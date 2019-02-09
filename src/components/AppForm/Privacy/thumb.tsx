@@ -3,7 +3,7 @@ import { Icon } from 'sharedComponent'
 
 type thumbProps = {
   file: File
-  remove: () => void
+  remove?: () => void
 }
 
 class Thumb extends PureComponent<thumbProps> {
@@ -60,11 +60,13 @@ class Thumb extends PureComponent<thumbProps> {
       loading: false,
       thumb: undefined,
     })
-    this.props.remove()
+    if (typeof this.props.remove === 'function') {
+      this.props.remove()
+    }
   }
 
   public render() {
-    const { file } = this.props
+    const { file, remove } = this.props
     const { thumb } = this.state
     if (!file) {
       return null
@@ -72,16 +74,20 @@ class Thumb extends PureComponent<thumbProps> {
 
     return (
       <>
-        <div
-          style={{
-            position: 'absolute',
-            right: '9px',
-            top: '9px',
-          }}
-          onClick={() => this.removeImage()}
-        >
-          <Icon name="close" size={20} color="#e04f5f" />
-        </div>
+        {remove ? (
+          <div
+            style={{
+              position: 'absolute',
+              right: '9px',
+              top: '9px',
+            }}
+            onClick={() => this.removeImage()}
+          >
+            <Icon name="close" size={20} color="#e04f5f" />
+          </div>
+        ) : (
+          ''
+        )}
         <img
           src={thumb}
           alt={file.name}

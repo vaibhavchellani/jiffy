@@ -18,7 +18,7 @@ type formValue = {
   network: 'Select Network' | 'ropsten' | 'rinkeby' | 'mainnet' | 'custom'
   tags: string[]
   mode: 'public' | 'private'
-  icon: File | null
+  icon: File | null | string
   customIcon: File | null
 }
 
