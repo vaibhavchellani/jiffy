@@ -6,102 +6,96 @@ import { Icon } from 'sharedComponent'
 
 import { formProps as ReviewProps } from '../index'
 
+import * as S from './styles'
+
+const IconImages = {
+  icon1: 'https://github.com/identicons/imshubhamsingh.png',
+  icon2: 'https://github.com/identicons/vaibhav.png',
+  icon3: 'https://github.com/identicons/jiffy.png',
+}
+
 const Review = (props: ReviewProps) => {
-  const { values, handleChange, handleBlur } = props
+  const { values } = props
   return (
-    <Form.Box>
-      <Form.Content>
+    <S.ReviewBox>
+      <S.ReviewContent>
         <Text size={1.75} themeColor bold>
-          Let’s narrow down your options
+          Review and Submit
         </Text>
-        <Form.Inputs>
-          <Form.Label>DApp Name</Form.Label>
-          <Form.Input
-            name="name"
-            onChange={handleChange}
-            onBlur={handleBlur}
-            value={values.name}
-          />
-        </Form.Inputs>
-        <Form.Inputs>
-          <Form.Label>Contract Address</Form.Label>
-          <Form.Input
-            name="address"
-            onChange={handleChange}
-            onBlur={handleBlur}
-            value={values.address}
-          />
-        </Form.Inputs>
-        <Form.Inputs>
-          <Form.Label>Network</Form.Label>
-          <Form.Select
-            name="network"
-            value={values.network}
-            onChange={handleChange}
-            onBlur={handleBlur}
-            style={{ display: 'block' }}
-          >
-            <Form.Option value="" label="Select a network" />
-            <Form.Option value="ropsten" label="ropsten" />
-            <Form.Option value="rinkeby" label="rinkeby" />
-            <Form.Option value="mainnet" label="mainnet" />
-            <Form.Option value="custom" label="custom" />
-          </Form.Select>
-        </Form.Inputs>
-        <Form.Inputs>
-          <Form.Label>Privacy</Form.Label>
-          <Form.Select
-            name="network"
-            value={values.mode}
-            onChange={handleChange}
-            onBlur={handleBlur}
-            style={{ display: 'block' }}
-          >
-            <Form.Option value="public" label="public" />
-            <Form.Option value="private" label="private" />
-          </Form.Select>
-        </Form.Inputs>
-        <Form.Inputs>
-          <Form.Label>Tags</Form.Label>
-          <FieldArray
-            name="tags"
-            render={arrayHelpers => (
-              <Form.Tag>
-                <Tags>
-                  {values.tags && values.tags.length > 0 ? (
-                    values.tags.map((tag: string, index: number) => (
-                      <button
-                        type="button"
-                        key={index}
-                        className="tag"
-                        onClick={() => arrayHelpers.remove(index)} // remove a friend from the list
-                      >
-                        {tag} <Icon name="cross" size={12} />
-                      </button>
-                    ))
-                  ) : (
-                    <div />
-                  )}
-                  <Form.TagInput
-                    onKeyPress={(
-                      e: React.KeyboardEvent<HTMLInputElement>,
-                    ): void => {
-                      if (e.key === 'Enter') {
-                        // @ts-ignore:disable-next-line
-                        arrayHelpers.push(e.target.value)
-                        // @ts-ignore:disable-next-line
-                        e.target.value = ''
-                      }
-                    }}
-                  />
-                </Tags>
-              </Form.Tag>
-            )}
-          />
-        </Form.Inputs>
+        <S.ReviewDetails>
+          <div>
+            <S.ReviewTopContainer>
+              <div>
+                <S.CheckboxLabel width={150} height={150}>
+                  <img src={IconImages[values.icon]} width={150} />
+                </S.CheckboxLabel>
+              </div>
+              <S.ReviewImp>
+                <Form.Inputs>
+                  <Form.Label>DApp Name</Form.Label>
+                  <S.ReviewInput>{values.name}</S.ReviewInput>
+                </Form.Inputs>
+                <Form.Inputs>
+                  <Form.Label>Network</Form.Label>
+                  <S.ReviewInput>{values.network}</S.ReviewInput>
+                </Form.Inputs>
+              </S.ReviewImp>
+            </S.ReviewTopContainer>
+
+            <Form.Inputs>
+              <Form.Label>Contract Address</Form.Label>
+              <S.ReviewInput>{values.address}</S.ReviewInput>
+            </Form.Inputs>
+            <Form.Inputs>
+              <Form.Label>Privacy</Form.Label>
+              <S.ReviewInput>{values.mode}</S.ReviewInput>
+            </Form.Inputs>
+          </div>
+          <div>
+            <Form.Inputs>
+              <Form.Label>Tags</Form.Label>
+              <FieldArray
+                name="tags"
+                render={arrayHelpers => (
+                  <Form.Tag>
+                    <Tags>
+                      {values.tags && values.tags.length > 0 ? (
+                        values.tags.map((tag: string, index: number) => (
+                          <button
+                            type="button"
+                            key={index}
+                            className="tag"
+                            onClick={() => arrayHelpers.remove(index)} // remove a friend from the list
+                          >
+                            {tag} <Icon name="cross" size={12} />
+                          </button>
+                        ))
+                      ) : (
+                        <div />
+                      )}
+                      <Form.TagInput
+                        onKeyPress={(
+                          e: React.KeyboardEvent<HTMLInputElement>,
+                        ): void => {
+                          if (e.key === 'Enter') {
+                            // @ts-ignore:disable-next-line
+                            arrayHelpers.push(e.target.value)
+                            // @ts-ignore:disable-next-line
+                            e.target.value = ''
+                          }
+                        }}
+                      />
+                    </Tags>
+                  </Form.Tag>
+                )}
+              />
+            </Form.Inputs>
+          </div>
+        </S.ReviewDetails>
+
         <br />
-      </Form.Content>
-    </Form.Box>
+      </S.ReviewContent>
+    </S.ReviewBox>
   )
 }
 
