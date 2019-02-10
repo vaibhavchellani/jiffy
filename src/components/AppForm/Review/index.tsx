@@ -11,9 +11,7 @@ import { formProps as ReviewProps } from '../index'
 import * as S from './styles'
 
 type Images = {
-  icon1: string
-  icon2: string
-  icon3: string
+  [index: string]: string
 }
 
 const IconImages: Images = {
@@ -31,7 +29,7 @@ const Review = (props: ReviewProps) => {
           Review and Submit
         </Text>
         <S.ReviewDetails>
-          <div>
+          <div style={{ flex: 1, padding: '0 10px' }}>
             <S.ReviewTopContainer>
               <div>
                 {values.customIcon && values.icon === 'icon0' ? (
@@ -42,7 +40,7 @@ const Review = (props: ReviewProps) => {
                   </>
                 ) : (
                   <S.CheckboxLabel width={150} height={150}>
-                    <img src={IconImages[values.icon]} width={150} />
+                    <img src={IconImages[values.icon]} width={150} />{' '}
                   </S.CheckboxLabel>
                 )}
               </div>
@@ -67,7 +65,7 @@ const Review = (props: ReviewProps) => {
               <S.ReviewInput>{values.mode}</S.ReviewInput>
             </Form.Inputs>
           </div>
-          <div>
+          <div style={{ flex: 1, padding: '0 10px' }}>
             <Form.Inputs>
               <Form.Label>Tags</Form.Label>
               <FieldArray

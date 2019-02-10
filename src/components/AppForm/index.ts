@@ -4,6 +4,7 @@ import Labels from './Labels'
 import Stepper from './Stepper'
 import Privacy from './Privacy'
 import Review from './Review'
+import Submit from './Submit'
 
 type formProps = {
   values: {
@@ -12,7 +13,7 @@ type formProps = {
     network: 'Select Network' | 'ropsten' | 'rinkeby' | 'mainnet' | 'custom'
     tags: string[]
     mode: 'public' | 'private'
-    icon: File | null | string
+    icon: string
     customIcon: File | null
   }
   handleChange: (e: string | ChangeEvent<any>) => void
@@ -20,4 +21,4 @@ type formProps = {
   setFieldValue: (e: any, _: any) => void
 }
 
-export { formProps, ContractDetails, Labels, Stepper, Privacy, Review }
+export { formProps, ContractDetails, Labels, Stepper, Privacy, Review, Submit }

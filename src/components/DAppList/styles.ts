@@ -51,6 +51,7 @@ export const AppList = styled(
     }
     &__time {
       display: flex;
+      width: 220px;
       &__icon {
         margin-top: 4px;
         margin-right: 10px;
