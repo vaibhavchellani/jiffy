@@ -226,10 +226,12 @@ class MiniDrawer extends React.Component {
               </ListItem>
             ))}
           </List>
+          <Typography align ="center" ><Blockie/></Typography> 
 
         </Drawer>
+
         <main className={classes.content}>
-        
+
           <div className={classes.toolbar} />
         
         </main>
