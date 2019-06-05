@@ -22,6 +22,8 @@ export const Text = styled(
       x: 0,
       opacity: 1,
       delay: 500,
+      delayChildren: 100,
+      staggerChildren: 50,
       transition: {
         y: { ease: 'easeInOut', duration: 400 },
         default: { duration: 300 },
@@ -34,6 +36,7 @@ export const Text = styled(
     },
   }),
 )`
+  text-decoration: none;
   margin: 0;
   font-family: 'Roboto', sans-serif;
   font-size: ${(props: TextProps) => props.size || 28}em;

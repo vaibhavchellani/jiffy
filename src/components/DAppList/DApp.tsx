@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import ReactTimeAgo from 'react-time-ago'
 
 import { Icon } from 'sharedComponent'
 import { PoseGroup } from 'react-pose'
@@ -59,7 +60,9 @@ export default class DApp extends Component<AppProps, AppState> {
             <div className="app__time__icon">
               <Icon name="clock" size={30} />
             </div>
-            <div className="app__time__createdAt">{createdAt}</div>
+            <div className="app__time__createdAt">
+              <ReactTimeAgo date={new Date(createdAt)} />
+            </div>
           </div>
         )}
         <div className="app__network">{network}</div>

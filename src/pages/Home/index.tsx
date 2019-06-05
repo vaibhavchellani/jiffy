@@ -3,7 +3,7 @@ import { Container, Text, Button, LoginModalContainer } from 'elements'
 import { Toggle, Modal } from 'sharedComponent'
 
 import * as S from './styles'
-import { Info, DAppList } from 'components'
+import { Info, DAppList, Blockie } from 'components'
 import * as Images from 'image'
 import { spanStyleCss } from 'styles'
 
@@ -35,6 +35,7 @@ export default class Home extends Component {
               CONTRACTS
             </Text>
           </S.Box>
+
           <S.InfoContainer>
             {InfoData.map((info, i) => (
               <Info
@@ -45,8 +46,10 @@ export default class Home extends Component {
                 imgSrc={images[i]}
               />
             ))}
+
           </S.InfoContainer>
         </Container>
+
         <Container flexFlow="column">
           <Text
             size={1.3}
@@ -57,9 +60,11 @@ export default class Home extends Component {
             initialPose="exit"
             pose="enter"
           >
-            Recent Public dApps
+            Recent Public ÐApps
           </Text>
-          <DAppList data={dAppListData} small height={'500px'} />
+       <DAppList data={dAppListData} small height={'500px'} />
+          
+
           <Toggle>
             {({ on, toggle }) => (
               <>
@@ -111,7 +116,9 @@ export default class Home extends Component {
                           margin: '14px 0',
                         }}
                       >
-                        <Text size={1.5}>Connect to Metamask</Text>
+                        <Text size={1.5} initialPose="enter" pose="enter">
+                          Connect to Metamask
+                        </Text>
                       </Button>
                     </div>
                   </LoginModalContainer>

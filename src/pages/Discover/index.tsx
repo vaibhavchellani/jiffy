@@ -44,7 +44,7 @@ export default class Discover extends Component {
               initialPose="exit"
               pose="enter"
             >
-              DApp
+              ÐApps
             </Text>
             <div className="search">
               <Text size={1.5} initialPose="exit" pose="enter">
